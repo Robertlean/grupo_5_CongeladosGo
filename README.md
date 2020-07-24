@@ -68,6 +68,9 @@ Nahuel Ojeda: Soy de San Miguel, zona oeste de gran Buenos Aires. tengo 34 años
 Trabajo en un pizzería en la cocina y entregando los pedidos en moto, tengo experiencia variada en lo que sea control de stock
 
 Paulina Fridman: Vivo en el barrio de La Boca C.A.B.A., tengo 24 años.  Trabajo en el Programa Arte en Barrios del Ministerio de Cultura del Gobierno de la Ciudad de Buenos Aires. Estudió Pedagogia.
+¿Quienes somos?
+Somos tres socios unidos por un trabajo practico integrador de desarrollo web, ya llevamos 10 años en la industria del software,  nos dedicamos tiempo completo a este area  combinando nuestros conocimientos y liderasgo. Desde nuestros centros de servicio ubicados en San Miguel, Pilar y C.A.B.A., Bolivia, Paraguay y Mexico. Contamos con clientes Nacionales e internacionales como E.E.U.U., Turquia, Italia y Catalunia.
+
 
 Sitios similares, relacionados o que sean de interés: 
 
