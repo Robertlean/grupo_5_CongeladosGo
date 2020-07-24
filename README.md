@@ -59,15 +59,8 @@ Nuestra audiencia está enfocada a todas las edades, desde los más pequeños ha
 
 Oferta al público: Las ofertas principales son de empanadas y pizzas que es lo que el público más consume. Las ofertas varían entre los productos más económicos para gente con poco recurso y más elevadas para aquellos más exigente.
 
-Descripción de los integrantes del equipo:
+Descripción del equipo:
 
-Roberto Veintemilla: Soy un chico de la ciudad de Pilar, zona norte de Buenos Aires. Tengo 28 años y actualmente vivo con mi pareja.
-Tengo un emprendimiento junto a mi madre, en donde vendemos productos de la marca de “El Noble”. Yo me enfoco en la parte del delivery, la del control de stock en la cámara y parte de la oficina. 
-
-Nahuel Ojeda: Soy de San Miguel, zona oeste de gran Buenos Aires. tengo 34 años soltero sin hijos.
-Trabajo en un pizzería en la cocina y entregando los pedidos en moto, tengo experiencia variada en lo que sea control de stock
-
-Paulina Fridman: Vivo en el barrio de La Boca C.A.B.A., tengo 24 años.  Trabajo en el Programa Arte en Barrios del Ministerio de Cultura del Gobierno de la Ciudad de Buenos Aires. Estudió Pedagogia.
 ¿Quienes somos?
 Somos tres socios unidos por un trabajo practico integrador de desarrollo web, ya llevamos 10 años en la industria del software,  nos dedicamos tiempo completo a este area  combinando nuestros conocimientos y liderasgo. Desde nuestros centros de servicio ubicados en San Miguel, Pilar y C.A.B.A., Bolivia, Paraguay y Mexico. Contamos con clientes Nacionales e internacionales como E.E.U.U., Turquia, Italia y Catalunia.
 
