@@ -79,3 +79,6 @@ Estos cinco sitios nos parecio que eran los mas pertinentes para éste trabajo, 
 Colores: 
 Turquesa 32e0c4
 color de fondo: ffffddd
+
+
+https://trello.com/b/Q5Z34Xb2/grupo-5-congeladosgo
