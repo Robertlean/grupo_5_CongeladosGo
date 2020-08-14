@@ -1,0 +1,138 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+  border: 2px solid #ccc;
+  padding: 5px;
+  margin: 200px;
+  box-sizing: border-box;
+}
+
+.border{
+
+  border: 2px solid #ccc;
+}
+
+
+
+img{
+
+    width: 250px;
+    height: 230px;
+    margin-left: 205px;
+}
+
+.chipa{
+    position: relative;
+    left: 400px;
+    top: 30px; 
+
+
+}
+
+
+
+
+.producto {
+    width: 5%;
+    height: 20px;
+    padding: 12px 90px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+.coccion{
+    /*width: 50%;*/
+    height: 150px;
+    /*padding: 12px 20px;*/
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+  .categoria{
+    width: 5%;
+    height: 10px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+
+.ingredientes {
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+  .descripcion {
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+  .precio {
+    width: 5%;
+    height: 10px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+  .stock {
+    width: 5%;
+    height: 10px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+ .subir{
+
+    width: 5%;
+    height: 10px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+
+ }
+  
+​
+
+/*
+HEADER
+*/
+​
+header{
+    background-color: var(--color-amarillo);
+    padding: 20px 0px;
+}
+

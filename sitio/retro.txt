@@ -1,0 +1,20 @@
+SEGUIR HACIENDO:
+reuniones cada vez que cordinemos
+ser extrictos con las fechas de entrega
+
+HACER MAS:
+apoyar con las dudas y consultar
+aplicar los conocimientos nuevos de HTLM y CSS
+consultar a los profesores para no arrastars errores
+mejorar la redaccion
+
+EMPEZAR A HACER:
+usar(sin abusar) de bootstrap
+que cada uno tenga sus copias de los trabajos en su PC
+
+DEJAR DE HACER:
+tomar con soltura git
+
+HACER MENOS:
+ser desprolijos
+degitalizarnos mas (menos papel y lapiz) 

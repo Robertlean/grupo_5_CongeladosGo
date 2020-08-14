@@ -1,0 +1,114 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+
+.columns{
+
+    background-color: #181818;
+
+
+}
+
+
+img{
+
+  
+    width: 253px;
+    height: 235px;
+    margin-left: 190px;
+}
+
+h1{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 85px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+
+}
+
+h2{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 85px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+
+}
+
+.nombre{
+
+    width: 5%;
+    height: 10px;
+    padding: 12px 100px;
+    box-sizing: border-box;
+    
+    border-radius: 4px;
+    resize: none;
+
+
+}
+
+.apellido{
+    width: 5%;
+    height: 10px;
+    padding: 12px 100px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    resize: none;
+
+}
+
+.fecha{
+
+    width: 5%;
+    height: 10px;
+    padding: 12px 100px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    resize: none;
+
+}
+
+.tel{
+
+    width: 5%;
+    height: 10px;
+    padding: 12px 100px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    resize: none;
+
+}
+
+
+.email{
+
+    width: 5%;
+    height: 10px;
+    padding: 12px 100px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    
+    resize: none;
+
+
+}
+
+.contraseña{
+
+    width: 5%;
+    height: 10px;
+    padding: 12px 100px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    resize: none;
+
+  
+}
