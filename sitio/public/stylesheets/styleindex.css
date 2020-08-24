@@ -1,0 +1,34 @@
+.color-nav{
+    background-color: #181818;
+}
+.navbar-burger span{
+    color: whitesmoke;
+}
+.navbar-item a{
+    color: whitesmoke;
+    font-family: Oswald;
+}
+.oculto {
+    display: none;
+}
+.desplegable {
+    width: 300px;
+
+}
+.nav-logo{
+    height: 2em;
+    width: 2em;
+}
+.black {
+    background-color: black;
+    text-align: center;
+}
+@media (max-width: 1024px) {
+    .go-title{
+        display: none;
+    }
+
+}
+body{
+    background-color: aquamarine;
+}
