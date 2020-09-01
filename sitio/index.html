@@ -20,21 +20,10 @@
 
 <body class="bodi">
     <!--Barra de menú-->
-    <header class="cabecera">
-        <div class="partLogo">
-            <a href="index.html"><img class="imglogo" src="./image/logo.png" alt=""></a>
-            <h1 class="titulo">Congelados Go!</h1>
-        </div>
-            <ul class="itemsNav">
-                <li><a href="#">PRODUCTOS</a></li>
-                <li><a href="#">COCCIÓN </a></li>
-                <li><a href="#">REVENDER </a></li>
-                <li><a href="#">CONTACTO </a></li>
-                <li><a href="#">DELIVERY </a></li>
-                <li><a href="#">NOSOTROS</a></li>
-            </ul>
-        
-    </header>
+
+    <%= include('parcial/header') %> 
+
+    
 
     <!--Barra del buscador + ingresar/iniciar sesión-->
     <nav class="navegBuscador">
