@@ -1,14 +1,6 @@
 let agregaMiles = require('../functions/agregaMiles')
 let dbProduct = require('../data/database') //requiero la base de datos de productos
 
-/*dbProduct = dbProduct.map(producto => { //hago modifiaciones a los datos de la bd
-    if (producto.discount != 0) { //si el descuento es distinto de 0
-        producto.price = (producto.price - producto.price * producto.discount / 100).toFixed(0) //el precio del producto será el precio de lista menos el descuento sin decimales
-    }
-    producto.price = agregaMiles(producto.price)
-    return producto
-})*/
-
 module.exports = { //exporto un objeto literal con todos los metodos
     index: function(req, res) {
 
