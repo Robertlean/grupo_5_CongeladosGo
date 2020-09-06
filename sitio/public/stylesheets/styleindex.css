@@ -23,12 +23,3 @@
     background-color: black;
     text-align: center;
 }
-@media (max-width: 1024px) {
-    .go-title{
-        display: none;
-    }
-
-}
-body{
-    background-color: aquamarine;
-}

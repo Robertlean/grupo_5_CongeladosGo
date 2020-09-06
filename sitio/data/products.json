@@ -39,7 +39,7 @@
         "description":"Empanadas rellenas de pollo",
         "cantidadxVenta":6,
         "price":120,
-        "image": "IMG-20200218-WA0035.jpg",        
+        "image": "IMG-20200311-WA0035.jpg",        
         "stock":0,
         "cantidadVendidas": 0
     },
@@ -204,7 +204,7 @@
         "description":"Empanadas rellenas de pollo con aalsa de barbacoa",
         "cantidadxVenta": 6,
         "price": 170,
-        "image": "IMG-20200218-WA0037.jpg",        
+        "image": "IMG-20200311-WA0037.jpg",        
         "stock":0,
         "cantidadVendidas": 0
     },
@@ -390,7 +390,7 @@
         "description":"Bandeja con risotto de zalabaza",
         "cantidadxVenta": 1,
         "price": 100,
-        "image": "Risotto.png",        
+        "image": "Risotto.jpg",        
         "stock":0,
         "cantidadVendidas": 0
     },
@@ -511,7 +511,7 @@
         "description":"Pizzas individuales (4 porciones por pizza) de muzzarella",
         "cantidadxVenta": 2,
         "price": 210,
-        "image": "IMG-20200218-WA0034",        
+        "image": "IMG-20200311-WA0034.jpg",        
         "stock":0,
         "cantidadVendidas": 0
     }

@@ -1,6 +1,10 @@
 body{   
     background-color:#f1f1f1a6;
 }
+a:hover{
+    text-decoration: none;
+    
+}
 .cabecera{
     display: flex;
     flex-direction: row;
@@ -46,8 +50,6 @@ ul li a{
     /*text-decoration: none;*/
     font-family: Oswald;
 }
-
-
 
 .navegBuscador{
     display: flex;

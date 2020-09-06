@@ -1,7 +1,4 @@
-*{
-    box-sizing: border-box;
-    margin: 0 auto;
-}
+
 body{
     font-family: 'Oswald', sans-serif;
     background-color:#f1f1f1a6;
@@ -52,10 +49,6 @@ ul li a{
     /*text-decoration: none;*/
     font-family: Oswald;
 }
-.logosocial{
-    color: #e9ecef;
-    background-color: #e9ecef;
-}
 
 .navegBuscador{
     display: flex;
@@ -79,6 +72,7 @@ form input{
 }
 .sociales{
     display: flex;
+    justify-content: flex-start;
 }
 .formulaBuscador{
     display: flex;   
@@ -126,15 +120,6 @@ body{
 }
 .texto1{
     left: 100px;
-}
-.logosocial a i{
-    font-size: 2em;
-    color: #181818;
-    padding:3px;
-}
-.sociales{
-    padding-left:10px;
-    display: flex;
 }
 .container-fluid{
     width: 100%;

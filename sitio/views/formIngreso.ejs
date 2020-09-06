@@ -1,133 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+<html lang="es">
 
-    <script src="https://kit.fontawesome.com/59ffe184f6.js" crossorigin="anonymous"></script>
+	<%- include('partials/head') %> 
 
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-    
-  
-    <link rel="stylesheet" href="css/bulma.min.css">
-  <link rel="stylesheet" href="">
-  <!--<link rel="stylesheet" href="css/style.css">-->
+	<body class="bodi">
+		<!--Barra de menú-->
+	
+		<%- include('partials/header') %> 
+	
+		<!--Barra del buscador + ingresar/iniciar sesión-->
+		<%- include('partials/nav') %> 
 
-  <link rel="stylesheet" href="./css/formIngreso.css">
-  
 
-  <title>Iniciar seción</title>
-</head>
+	<div class="container">
 
-<header class="cabecera">
-  <div class="partLogo">
-      <a href="index.html"><img class="imglogo" src="./image/logo.png" alt=""></a>
-      <h1 class="titulo">Congelados Go!</h1>
-  </div>
-      <ul class="itemsNav">
-          <li><a href="#">PRODUCTOS</a></li>
-          <li><a href="#">COCCIÓN </a></li>
-          <li><a href="#">REVENDER </a></li>
-          <li><a href="#">CONTACTO </a></li>
-          <li><a href="#">DELIVERY </a></li>
-          <li><a href="#">NOSOTROS</a></li>
-      </ul>
-  
-</header>
+	
+	<div class="ingreso ">
 
-<!--Barra del buscador + ingresar/iniciar sesión-->
-<nav class="navegBuscador">
-  <!--Redes sociales-->
-  <div class="sociales">
-      <div class="logosocial">
-          <a href="https://www.facebook.com/Congelados-Go-Pilar-101760601380037/">
-              <i class="fab fa-facebook-f"></i>
-          </a>
-      </div>
-      <div class="logosocial">
-          <a href="https://www.instagram.com/congelados.go/">
-              <i class="fab fa-instagram"></i>
-          </a>
-      </div>
-  </div>
-  <!--Formulario de busqueda-->
-  <div class="formulaBuscador">
-      <div class="field has-addons">
-          <form action="buscador" method="GET"></form>
-          <div class="control">
-              <input class="input" type="text" placeholder="Buscar">
-          </div>
-          <div class="control">
-              <a class="button is-info color-gray">
-                  <i class="fas fa-search"></i>
-              </a>
-          </div>
-          </form>
-      </div>
-  </div>
-  <!--<form name="Buscador" method="GET" action="">
-          <input type="search" name="buscador" autocomplete="on" form="formulario" placeholder="Buscar">
-          <div class="input-group">
-              <i class="fas fa-search"></i>
-          </div>
-      </form>-->
+		<img src="/images/logo.png" alt="logo" class="logo">
 
-  <!--Ingreso sesión/ carrito-->
-  <ul class="itemsSesion">
-      <!--Aquí deberá ir el html al ingreso-->
-      <li><a href="http://">INGRESAR</a></li>
-      <!--Aquí deberá ir el carrito de compra-->
-      <li><a href="productCart.html"><i class="fas fa-shopping-cart"></i></a></li>
-  </ul>
-</nav>
+		<h2>Iniciar sesión</h2>
+		<div class="">
+			<form>
+			
+				<div class="form-group">
+				  <label for="exampleInputEmail1">Email</label>
+				  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+				</div>
 
-<body >
+				<div class="form-group">
+				  <label for="exampleInputPassword1">Contraseña</label>
+				  <input type="password" class="form-control" id="exampleInputPassword1">
+				</div>
 
- <div class="ingreso">
+				<div class="form-group form-check">
+				  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+				  <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+				</div>
 
-  <img src="./image/logo.png" alt="logo" class="logo">
+				<div class="d-flex justify-content-end">
+					<button type="submit" class="btn btn-primary ml-5">Ingresar</button>
+				</div>
 
-  <h2>Iniciar seción</h2>
-  <div class="formulario"><form action="resultado.html" method="POST">
-    <nav>
-      <label>Nombre de usuario</label>
-      <input class="usuario" type="text" name="nombre" required>
-    </nav>
-<br>
-    <nav>
-      <label >E-mail:</label>
-      <input class="email" type="email" name="email" required>
-    </nav>
-<br>
-    <nav>
-      <label>Contraseña:</label>
-      <input class="contraseña" type="password" name="password" required>
-    </nav>
-<br>
-    <nav>
-      <input type="submit" value="Ingresar">
-    </nav>
-<br>
-    <nav>
-      <label class="registro">¿No estas registrado?</label>
-      <br>
-      <input type="submit" value="Registrarse">
-    </nav>
-  </form>
+			  </form>
+		</div>
+	</div>
 </div>
-</div>
+<%- include('partials/footer') %> 
 
 </body>
+
 </html>
-
-
-
-
-
-   

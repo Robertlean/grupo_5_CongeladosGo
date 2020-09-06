@@ -1,34 +1,21 @@
-*{
-    box-sizing: border-box;
-    margin: 4;
-}
+@import "index.css";
 
-
-body{
-    background-color:  white;
-}
 .ingreso{
-    width: 499px;
-    flex-direction: row;
-
+    width: 50%;
     border: 2px solid #ccc;
     border-radius: 5px;
-    padding: 88px;
-    margin: 350px;
-    box-sizing: border-box;
     background-color: #181818;
-    box-shadow: rgb(150, 141, 141) 0px 3px 5px;
-    justify-content: flex-start;
+    color: white;
+    padding: 1em 3em;
+    margin: auto;
 }
 
 .logo{
-    width: 250px;
-    height: 230px;
-    margin-left: 20px;
-    position: relative;
-    top: -30px; 
-
-
+    width: 10em;
+    height: 10em;
+    display: flex;
+    margin: auto;
+    margin-bottom: 2em;
 }
 
 h2{
