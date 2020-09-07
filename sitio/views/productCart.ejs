@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head') %>
+
+<body class="bodi">
+    <%- include('partials/header') %>
+
+    <nav class="navegBuscador">
+        <!--Redes sociales-->
+        <div class="sociales">
+            <div class="logosocial">
+                <a href="https://www.facebook.com/Congelados-Go-Pilar-101760601380037/">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            <div class="logosocial">
+                <a href="https://www.instagram.com/congelados.go/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+
+        <!--Formulario de busqueda-->
+        <div class="formulaBuscador">
+            <div class="field has-addons">
+                <form action="buscador" method="GET"></form>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Buscar">
+                </div>
+                <div class="control">
+                    <a class="button is-info">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <!--Ingreso sesión/ carrito-->
+        <ul class="itemsSesion">
+            <!--Aquí deberá ir el html al ingreso-->
+            <li><a href="http://">INGRESAR</a></li>
+            <!--Aquí deberá ir el carrito de compra-->
+            <li><a href="productCart.html"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-7 col-sm-6 col-6 body-section">
+                <div class="headCaracters">
+                    <h2 class="textPedido">TU PEDIDO</h2>
+                    <button type="reset" class="cancel">x</button>
+                </div>
+
+                <div class="contenido">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-8 ">
+                                <p>ProductoCaracter1 >>>>>>>>>>>>>></p>>
+                                <p>$123</p>
+                                <p>ProductoCaracter2 >>>>>>>>>>>>></p>
+                                <p>$321</p>
+                                <br>
+                                <p>Subtotal >>>>>>>>>>>>></p>
+                                <p>$444</p>
+                                <br>
+                                <section>
+                                    <form action="">
+                                        <div>
+                                            <button>Continuar Comprando</button>
+                                        </div>
+                                        <p>Total >>>>>>>>>>>>></p>
+                                        <p>$500</p>
+                                        <div>
+                                            <button>Continuar hacia medio de Pago</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            </section>
+                            <div class="col-4">
+                                <section class="imgcontenido">
+                                    <img src="pizza.png" alt="">
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-5 col-sm-6 col-6 body-section">
+                <h2 class="textPedido">MEDIOS DE PAGO</h2>
+                <p>Podes abonarlo a travéz de Mercado Pago, transferencía bancaría o en efectivo al momento de la entrega</p>
+                <div class="imgpago">
+                    <img src="mercadopago-1.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>
