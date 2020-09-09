@@ -1,4 +1,4 @@
-let productos= require('../data/dbProductos');
+const productos= require('../data/dbProductos');
 //const dbDatanew = require('../data/dbDataNew');
 
 const fs = require('fs');
@@ -22,5 +22,42 @@ module.exports = { //exporto un objeto literal con todos los metodos
             css:"styledetallesProductos.css",
             producto: producto[0]
         })
-    }
+    },
+    agregar:function(req,res){
+        let category;
+        if (req.query.category){
+            categoria = req.query.category;
+        }
+        res.render('formProductos',{
+            title:"Agregar Producto",
+            categorias:productos,
+            category: category,
+            css:"formProducto.css",
+
+        })
+    },
+    publicar:function(req,res,next){
+        let lastID = 1;
+        productos.forEach(producto=>{
+            if(producto.id > lastID){
+                lastID = producto.id
+            }
+        })
+        let newProduct = {
+            id:lastID + 1,
+            name:req.body.name,
+            category:req.body.category,
+            description:req.body.description,
+            cantidadxVenta:req.body.cantidadxVenta,
+            price:Number(req.body.price),
+            image:(req.files[0])?req.files[0].filename:"default-image.png",
+            stock:req.body.stock,
+            cantidadVendidas:req.body.cantidadVendidas
+        }
+        productos.push(newProduct);
+        
+        fs.writeFileSync(path.join(__dirname,"..","data","productos.json"),JSON.stringify(productos),'utf-8')
+
+        res.redirect('/')
+    },
 }
