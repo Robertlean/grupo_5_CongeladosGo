@@ -30,3 +30,5 @@ module.exports = { //exporto un objeto literal con todos los metodos
         })
     }
 }
+
+
