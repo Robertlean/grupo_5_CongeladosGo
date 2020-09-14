@@ -26,9 +26,11 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
     ingreso: function(req, res) {
         res.render('formIngreso',{
-            css:"formIngreso.css"
+            title:"Ingresá a tu cuenta",
+            css:"formIngreso.css",
+            usuario:req.session.usuario
         })
-    }
+    },
 }
 
 

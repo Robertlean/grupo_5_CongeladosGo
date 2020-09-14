@@ -15,9 +15,11 @@ let upload = multer({storage:storage});
 
 const productosController = require('../controllers/productosController')
 
-router.get('/listar',productosController.listar)
-router.get('/detalle/:id',productosController.detalle)
+router.get('/listar', productosController.listar)
+router.get('/detalle/:id', productosController.detalle)
 router.get('/agregar', productosController.agregar)
-router.post('/agregar',upload.any(), productosController.agregar)
+router.post('/apregrar', upload.any(), productosController.agregar)
 
-module.exports = router;
+
+module.exports=router;
+
