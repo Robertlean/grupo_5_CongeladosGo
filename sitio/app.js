@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
+var methodOverride = require('method-override');
 
 let mainRouter = require('./routes/main');
 let productosRouter = require('./routes/productos');
@@ -20,6 +22,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret:'miFrase'}))
+app.use(methodOverride('_method'))
 
 app.use('/', mainRouter);
 app.use('/productos',productosRouter);

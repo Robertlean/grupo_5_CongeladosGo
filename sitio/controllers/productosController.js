@@ -30,9 +30,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
         }
         res.render('formProductos',{
             title:"Agregar Producto",
-            categorias:productos,
             category: category,
-            css:"formProducto.css",
+            css:"style.css",
 
         })
     },

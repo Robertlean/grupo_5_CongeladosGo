@@ -1,114 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('partials/head') %>
-<link rel="stylesheet" href="/stylesheets/<%= css %> ">
 
 <body class="bodi">
   <!--Barra de menú-->
 
-  <%- include('partials/header')  %> 
+  <%- include('partials/header')  %>
 
   <!--Barra del buscador + ingresar/iniciar sesión-->
 
-  <%- include('partials/nav')  %> 
+  <%- include('partials/nav')  %>
 
   <section class="cuerpo">
-    <div class="columns border-fluid">
-      <div class="column is-6 border">
-        <div class="caja"></div>
-        <div class="producto">
-          <div>
-            <label>Nombre del producto</label>
-            <input class="producto" type="nombre del producto">
+    <div class="">
+      <div class="">
+        <div class="">
+          <div class="">
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Example select</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <select multiple class="form-control" id="exampleFormControlSelect2">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            </form>
           </div>
-          <div>
-            <label>Ingredientes</label>
-            <br>
-            <textarea class="ingredientes" name="mensaje"></textarea>
-          </div>
-          <div>
-            <label>Descripción</label>
-            <br>
-            <textarea class="descripcion" name="mensaje"></textarea>
-          </div>
-          <div>
-            <label>Cocción</label>
-            <br>
-            <textarea class="coccion" name="mensaje"></textarea>
-          </div>
-          </form>
         </div>
       </div>
-      <div class="column is-6 border">
-        <form class="subir" enctype="multipart/form-data" action="uploader.php" method="POST">
-          <input name="uploadedfile" type="file" />
-          <input type="submit" value="Subir imagen" />
-        </form>
-        <div class="contenedor">
-          <label for="masa">Común</label>
-          <br>
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-          <label class="form-check-label" for="gridRadios2">
-            <label for="masa">Integral</label>
-            </form>
-        </div>
-        <div class="conteiner">
-          <div class="">
-            <label>Precio</label>
-            <input class="precio" type="precio">
-          </div>
-        </div>
-        <div class="conteiner">
-          <div class=" ">
-            <label>Stock</label>
-            <input class="stock" type="Stock">
-          </div>
-        </div>
-        <div>
-          <div>
-            <label>Productos</label>
-            <p>
-
-              <form action="resultado.html" metodo="POST">
-                <label for="masa">Disponible</label>
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                <label for="form-check-label" for="gridRadion1"></label>
-                <br>
-                <label for="masa">No Disponible</label>
-                <input class="form-chek-input"  type="radio" name="gridRadios" id="gridRadion1" value="option1" checked>
-                <label class="form-check-label" for="gridRadion1"></label> 
-
-              </form>
-             
-            </p>
-          </div>
-        </div>
-        <div>
-          <div class="">
-            <label>Tipo de masa</label>
-            <form action="resultado.html" method="POST">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-              <label class="form-check-label" for="gridRadios1">
-                <label for="masa">Común</label>
-                <br>
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                <label class="form-check-label" for="gridRadios2">
-                  <label for="masa">Integral</label>
-            </form>
-          </div>
-        </div>
-        <div>
-          <div>
-            <label>Categoria</label>
-            <input class="categoria" type="categoria">
-          </div>
-          <div>
-          </div>
-          <input type="submit" value="Agregar producto">
-          <input type="submit" value="Eliminar producto">
-          </form>
-        </div>
+    </div>
   </section>
-  <%- include('partials/footer)  %> 
+  <%- include('partials/footer')  %>
 </body>
+
 </html>
