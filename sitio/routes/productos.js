@@ -17,8 +17,15 @@ const productosController = require('../controllers/productosController')
 
 router.get('/listar', productosController.listar)
 router.get('/detalle/:id', productosController.detalle)
+//muestra el form para agregar produto
 router.get('/agregar', productosController.agregar)
-router.post('/agregar', upload.any(), productosController.agregar)
+//procesa los datos y agrega producto
+router.post('/agregar', upload.any(), productosController.publicar)
+
+router.get('editar/:id',productosController.forEditar)
+router.put('editar/:id',productosController.editar)
+
+router.delete('delete/:id',productosController.delete)
 
 
 module.exports=router;

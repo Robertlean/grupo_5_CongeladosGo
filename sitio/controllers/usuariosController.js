@@ -23,7 +23,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 id:lastid +1,
                 firstName: req.body.nombre,
                 lastName: req.body.apellido,
-                email: req.body.apellido,
+                email: req.body.email,
                 //avatar:req.files[0].filename,
                 password: bcrypt.hashSync(req.body.pass,10),
                 adress: "sin especificar",

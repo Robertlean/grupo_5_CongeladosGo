@@ -59,4 +59,9 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
         res.redirect('/')
     },
-}
+    editFrom: (req,res) =>{
+
+    },
+    edit: (req,res) =>{
+
+    },
