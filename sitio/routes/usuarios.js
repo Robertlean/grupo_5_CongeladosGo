@@ -3,10 +3,10 @@ const router = express.Router();
 const usuariosController = require('../controllers/usuariosController')
 
 router.get('/registro',usuariosController.registro);
-rrouter.post('/registro',usuariosController.processRegistro);
+router.post('/registro',usuariosController.processRegistro);
 
 router.get('/ingreso',usuariosController.ingreso);
-router.post('/ingreso',validacion,usuariosController.processRegistro);
-
+router.post('/ingreso',usuariosController.processRegistro);
+//               ,validacion,
 
 module.exports = router;

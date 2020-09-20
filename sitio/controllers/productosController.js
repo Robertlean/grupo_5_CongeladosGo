@@ -128,6 +128,6 @@ const path = require('path');
             }
         })
         fs.writeFileSync(path.join(__dirname, '../data/products.json'), JSON.stringify(dbProducts));
-        res.redirect('/users/profile')
+        res.redirect('/dbusers/profile')
     }
     }
