@@ -7,6 +7,7 @@ const fs = require('fs')
 module.exports = { //exporto un objeto literal con todos los metodos
     registro:function(req,res){
         res.render('formRegistro',{
+            title: "Registro de usuario",
             css:"style.css"
         })
     },

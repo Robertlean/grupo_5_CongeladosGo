@@ -47,6 +47,26 @@ a:hover{
     align-items: center;
     background-color:#181818;
 }
+@media(max-width:768px) {
+   
+    .cabecera {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .itemsNav{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .itemsNav li {
+        padding: 0px 100px;
+        border-right:solid black 1px;
+        border-bottom: white solid 1px;
+    }
+}
+
 .navbar{
     background-color:#181818;
 }
