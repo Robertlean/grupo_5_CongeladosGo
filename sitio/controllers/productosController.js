@@ -19,7 +19,8 @@ const path = require('path');
         })
         res.render('detallesProducto',{
             css:"styledetallesProductos.css",
-            producto: producto[0]
+            producto: producto[0],
+            
         })
     },
     agregar:function(req,res){
