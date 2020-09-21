@@ -25,7 +25,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 lastName: req.body.apellido,
                 email: req.body.email,
                 //avatar:req.files[0].filename,
-                password: bcrypt.hashSync(req.body.pass,10),
+                //password: bcrypt.hashSync(req.body.pass,10),
                 adress: "sin especificar",
                 city: "sin especificar",
                 numberPhone : 1141617154
@@ -73,11 +73,11 @@ module.exports = { //exporto un objeto literal con todos los metodos
         }
     },
         
-        perfil: function(req, res){
-            res.render('userperfil',{
+        perfil:function(req, res){
+            res.render('userPerfil',{
                 title: "Perfil de usuario",
                 productos: dbProducts.filter(producto =>{
-                    return producto.category != "visited" && producto.category != "in-sale"
+                    return producto.category != ""
 
                 }),
                 css: "style.css",
