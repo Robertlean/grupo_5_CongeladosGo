@@ -7,7 +7,7 @@ module.exports = [
     .isEmail()
     .withMessage('Debes ingresar un email válido'),
 
-    check('pass')
+    check('password')
     .isLength(1)
     .withMessage('Debes ingresar una contraseña'),
 
@@ -25,12 +25,12 @@ module.exports = [
     })
     .withMessage('El usuario no está registrado'), //mensaje de error
 
-    body('pass')
+    body('password')
     .custom((value,{req})=>{
         let result = true;
         dbUsuarios.forEach(user => {
             if(user.email == req.body.email){
-                if(!bcrypt.compareSync(value,user.pass)){
+                if(!bcrypt.compareSync(value,user.password)){
                     result = false
                 }
             }

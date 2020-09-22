@@ -2,7 +2,8 @@ let dbProducts = require('../data/dbDataNew');
 const users = require('../data/dbusers');
 const bcrypt = require('bcrypt');
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
+const { validationResult } = require('express-validator');
 
 module.exports = { //exporto un objeto literal con todos los metodos
     registro:function(req,res){
@@ -26,7 +27,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 lastName: req.body.apellido,
                 email: req.body.email,
                 //avatar:req.files[0].filename,
-                //password: bcrypt.hashSync(req.body.pass,10),
+                password: bcrypt.hashSync(req.body.pass,10),
                 adress: "sin especificar",
                 city: "sin especificar",
                 numberPhone : 1141617154
@@ -51,7 +52,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         if(errors.isEmpty()){
             users.forEach(usuario =>{
                 if(usuario.email == req.body.email){
-                    req.session.usuario ={
+                    req.session.usuario = {
                        id: usuario.id,
                        apodo: usuario.nombre + " " + usuario.apellido,
                        email: usuario.email
@@ -62,8 +63,9 @@ module.exports = { //exporto un objeto literal con todos los metodos
             if(req.body.recordar){
                 res.cookie('userCongeladosGo', req.session.usuario,{maxAge:1000*60*2})
             }
-            res.redirect('/')
+            res.redirect('/usuarios/perfil')
             }else{
+                res.send(errors.mapped())
                 res.render('formIngreso',{
                     title:"Ingresá a tu cuenta",
                     css: "style.css",

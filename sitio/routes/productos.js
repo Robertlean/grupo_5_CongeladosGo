@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer =require ('multer');
+const sessionUserCheck = require('../middlewares/sessionUserCheck')
 
 let storage = multer.diskStorage({
     destination:(req,file,callback)=>{
@@ -15,7 +16,7 @@ let upload = multer({storage:storage});
 
 const productosController = require('../controllers/productosController')
 
-router.get('/listar', productosController.listar)
+router.get('/listar',sessionUserCheck, productosController.listar)
 router.get('/detalle/:id', productosController.detalle)
 //muestra el form para agregar produto
 router.get('/agregar', productosController.agregar)

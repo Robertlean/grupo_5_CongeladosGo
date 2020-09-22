@@ -11,10 +11,10 @@ router.get('/registro',usuariosController.registro);
 router.post('/registro',registerValidator,usuariosController.processRegistro);
 
 router.get('/ingreso',usuariosController.ingreso);
-router.post('/ingreso',loginValidator,usuariosController.processRegistro);
+router.post('/ingreso',loginValidator,usuariosController.processLogin);
 
 router.get('/perfil',sessionUserCheck, usuariosController.perfil);
 
-router.get('/logout',usuariosController.desloguear);
+router.get('/salir',usuariosController.desloguear);
 
 module.exports = router;

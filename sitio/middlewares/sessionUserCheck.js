@@ -1,6 +1,6 @@
 
 module.exports = function sessionUserCheck(req,res,next){
-    if(req.session.dbusers){
+    if(req.session.usuario){
         next()
     }else{
         res.redirect('/usuarios/ingreso')
