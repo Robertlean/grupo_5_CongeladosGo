@@ -1,26 +1,29 @@
 const productos= require('../data/dbProductos');
-//const dbDatanew = require('../data/dbDataNew');
 
 const fs = require('fs');
 const path = require('path');
 
 module.exports = { //exporto un objeto literal con todos los metodos
     listar:function(req,res){
-        res.send(productos)
-        //res.render('productos', {
-        //    title: "Todos los Productos",
-        //    productos: productos,
-        //    css:"index.css"
-        //}) //muestra información de prueba
+        res.render('productos', {
+            title: "Todos los Productos - Congelados Go!",
+            products: productos,
+            css: "index.css",
+            usuario: req.session.usuario
+        }) //muestra información de prueba
     },
     detalle: function(req, res) {
-        idProducto = req.params.id;
+        let idProducto = req.params.id;
         let producto = productos.filter(producto=>{
             return producto.id == idProducto
         })
         res.render('detallesProducto',{
+            title: "Detalle del producto - Congelados Go!",
             css:"styledetallesProductos.css",
-            producto: producto[0]
+            id: id,
+            producto: producto[0],
+            ususario:req.session.ususario
+
         })
     },
     agregar:function(req,res){
@@ -29,10 +32,10 @@ module.exports = { //exporto un objeto literal con todos los metodos
             categoria = req.query.category;
         }
         res.render('formProductos',{
-            title:"Agregar Producto",
+            title:"Agregar Producto - Congelados Go!",
             category: category,
-            css:"style.css",
-
+            css:"formProductos.css",
+            usuario: req.session.usuario
         })
     },
     publicar:function(req,res,next){
@@ -57,11 +60,9 @@ module.exports = { //exporto un objeto literal con todos los metodos
         
         fs.writeFileSync(path.join(__dirname,"..","data","productos.json"),JSON.stringify(productos),'utf-8')
 
-        res.redirect('/')
-    },
+        res.redirect('/prodcuts/show')
+    } ,
     editFrom: (req,res) =>{
 
     },
-    edit: (req,res) =>{
-
-    },
+    edit: (req,res) =>{}}

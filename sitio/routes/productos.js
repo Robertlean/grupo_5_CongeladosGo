@@ -22,10 +22,10 @@ router.get('/agregar', productosController.agregar)
 //procesa los datos y agrega producto
 router.post('/agregar', upload.any(), productosController.publicar)
 
-router.get('editar/:id',productosController.forEditar)
+/*router.get('editar/:id',productosController.forEditar)
 router.put('editar/:id',productosController.editar)
 
-router.delete('delete/:id',productosController.delete)
+router.delete('delete/:id',productosController.delete)*/
 
 
 module.exports=router;

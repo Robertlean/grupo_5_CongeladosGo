@@ -1,4 +1,3 @@
-let dbProducts = require('../data/dbDataNew');
 const users = require('../data/users');
 const bcrypt = require('bcrypt');
 const path = require('path');
