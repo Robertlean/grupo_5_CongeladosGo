@@ -2,8 +2,7 @@ const productos= require('../data/dbProductos');
 
 const fs = require('fs');
 const path = require('path');
-
-module.exports = { //exporto un objeto literal con todos los metodos
+ module.exports = { //exporto un objeto literal con todos los metodos
     listar:function(req,res){
         res.render('productos', {
             title: "Todos los Productos - Congelados Go!",
@@ -20,10 +19,15 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('detallesProducto',{
             title: "Detalle del producto - Congelados Go!",
             css:"styledetallesProductos.css",
+<<<<<<< HEAD
             id: id,
             producto: producto[0],
             ususario:req.session.ususario
 
+=======
+            producto: producto[0],
+            
+>>>>>>> 829f98559c932aeeb18cb984f61baa9b3c360530
         })
     },
     agregar:function(req,res){
@@ -60,9 +64,87 @@ module.exports = { //exporto un objeto literal con todos los metodos
         
         fs.writeFileSync(path.join(__dirname,"..","data","productos.json"),JSON.stringify(productos),'utf-8')
 
+<<<<<<< HEAD
         res.redirect('/prodcuts/show')
     } ,
     editFrom: (req,res) =>{
 
     },
     edit: (req,res) =>{}}
+=======
+        res.redirect('/')
+    },
+    
+    /*editFrom: (req,res) =>{
+
+    },
+    edit: (req,res) =>{
+
+    },*/
+
+    show:function(req,res){
+        let idProducto = req.params.id;
+        let flap = req.params.flap;
+
+        let activeDetail;
+        let activeEdit;
+        let showDetail;
+        let showEdit;
+
+        if(flap == "show"){
+            activeDetail = "active";
+            showDetail = "show"
+        }else{
+            activeEdit = "active";
+            showEdit = "show";
+        } 
+
+        let resultado = dbProducts.filter(producto=>{
+            return producto.id == idProducto
+        })
+
+        res.render('productShow',{
+            title: "Ver / Editar Producto",
+            producto:resultado[0],
+            total:dbProductos.length,
+            css:"style.css",
+            activeDetail: activeDetail,
+            activeEdit: activeEdit,
+            showDetail:showDetail,
+            showEdit:showEdit,
+            usuario:req.session.usuario
+
+
+        })
+    },
+    editar:function(req,res){
+        let idProducto = req.params.id;
+
+        dbProductos.forEach(producto => {
+            if (producto.id == idProducto) {
+                producto.id = Number(req.body.id);
+                producto.name = req.body.name.trim();
+                producto.price = Number(req.body.price);
+                producto.category = req.body.category.trim();
+                producto.description = req.body.description.trim();
+                producto.image = (req.files[0]) ? req.files[0].filename : producto.image
+            }
+        })
+
+        fs.writeFileSync(path.join(__dirname, '../data/products.json'), JSON.stringify(dbProducts))
+        res.redirect('/productos/show/' + idProducto)
+
+    },
+    eliminar:function(req,res){
+        let idProducto = req.params.id;
+        dbProductos.forEach(producto=>{
+            if(producto.id == idProducto){
+                let aEliminar = dbProducts.indexOf(producto);
+                dbProductos.splice(aEliminar,1);
+            }
+        })
+        fs.writeFileSync(path.join(__dirname, '../data/products.json'), JSON.stringify(dbProducts));
+        res.redirect('/dbusers/profile')
+    }
+}
+>>>>>>> 829f98559c932aeeb18cb984f61baa9b3c360530
