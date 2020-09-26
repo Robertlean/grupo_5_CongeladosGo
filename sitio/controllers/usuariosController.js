@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 const users = require('../data/users');
-=======
-let dbProducts = require('../data/dbDataNew');
-const users = require('../data/dbusers');
->>>>>>> 829f98559c932aeeb18cb984f61baa9b3c360530
 const bcrypt = require('bcrypt');
 const path = require('path');
 const fs = require('fs');

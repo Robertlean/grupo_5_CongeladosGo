@@ -19,15 +19,10 @@ const path = require('path');
         res.render('detallesProducto',{
             title: "Detalle del producto - Congelados Go!",
             css:"styledetallesProductos.css",
-<<<<<<< HEAD
             id: id,
             producto: producto[0],
             ususario:req.session.ususario
 
-=======
-            producto: producto[0],
-            
->>>>>>> 829f98559c932aeeb18cb984f61baa9b3c360530
         })
     },
     agregar:function(req,res){
@@ -64,14 +59,6 @@ const path = require('path');
         
         fs.writeFileSync(path.join(__dirname,"..","data","productos.json"),JSON.stringify(productos),'utf-8')
 
-<<<<<<< HEAD
-        res.redirect('/prodcuts/show')
-    } ,
-    editFrom: (req,res) =>{
-
-    },
-    edit: (req,res) =>{}}
-=======
         res.redirect('/')
     },
     
@@ -147,4 +134,3 @@ const path = require('path');
         res.redirect('/dbusers/profile')
     }
 }
->>>>>>> 829f98559c932aeeb18cb984f61baa9b3c360530
