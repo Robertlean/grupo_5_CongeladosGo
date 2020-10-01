@@ -2,17 +2,19 @@ const express = require('express');
 const router = express.Router();
 const usuariosController = require('../controllers/usuariosController')
 
-const upImageAvatar = require('../middlewares/upImageAvatar');
+const sessionUserCheck = require('../middlewares/sessionUserCheck');
 
 const registerValidator = require('../validator/registerValidator');
-const loginValidator = require('../validator/loginvalidator');
+const loginValidator = require('../validator/loginValidator');
 
 router.get('/registro',usuariosController.registro);
-router.post('/registro',upImageAvatar.any(),registerValidator,usuariosController.processRegistro);
+router.post('/registro',registerValidator,usuariosController.processRegistro);
 
 router.get('/ingreso',usuariosController.ingreso);
-router.post('/ingreso',loginValidator,usuariosController.processRegistro);
+router.post('/ingreso',loginValidator,usuariosController.processLogin);
 
-router.get('/salir',usuariosController.desloguear);
+router.get('/perfil',sessionUserCheck, usuariosController.perfil);
+
+router.get('/logout',usuariosController.desloguear);
 
 module.exports = router;

@@ -1,28 +1,26 @@
 const productos= require('../data/dbProductos');
+//const dbDatanew = require('../data/dbDataNew');
 
 const fs = require('fs');
 const path = require('path');
  module.exports = { //exporto un objeto literal con todos los metodos
     listar:function(req,res){
-        res.render('productos', {
-            title: "Todos los Productos - Congelados Go!",
-            products: productos,
-            css: "index.css",
-            usuario: req.session.usuario
-        }) //muestra información de prueba
+        res.send(productos)
+        //res.render('productos', {
+        //    title: "Todos los Productos",
+        //    productos: productos,
+        //    css:"index.css"
+        //}) //muestra información de prueba
     },
     detalle: function(req, res) {
-        let idProducto = req.params.id;
+        idProducto = req.params.id;
         let producto = productos.filter(producto=>{
             return producto.id == idProducto
         })
         res.render('detallesProducto',{
-            title: "Detalle del producto - Congelados Go!",
             css:"styledetallesProductos.css",
-            id: id,
             producto: producto[0],
-            ususario:req.session.ususario
-
+            
         })
     },
     agregar:function(req,res){
@@ -31,10 +29,10 @@ const path = require('path');
             categoria = req.query.category;
         }
         res.render('formProductos',{
-            title:"Agregar Producto - Congelados Go!",
+            title:"Agregar Producto",
             category: category,
-            css:"formProductos.css",
-            usuario: req.session.usuario
+            css:"style.css",
+
         })
     },
     publicar:function(req,res,next){

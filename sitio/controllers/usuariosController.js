@@ -1,4 +1,5 @@
-const users = require('../data/users');
+let dbProducts = require('../data/dbproductos');
+const users = require('../data/dbusers');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const fs = require('fs');
@@ -64,7 +65,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
             }
             res.redirect('/usuarios/perfil')
             }else{
-                res.send(errors.mapped())
+                //res.send(errors.mapped())
                 res.render('formIngreso',{
                     title:"Ingresá a tu cuenta",
                     css: "style.css",
