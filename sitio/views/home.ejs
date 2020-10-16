@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head') %> 
+
+<body class="bodi">
+    <!--Barra de menú-->
+    <%- include('partials/header') %> 
+
+    <!--Barra del buscador + ingresar/iniciar sesión-->
+    <%- include('partials/nav') %> 
+
+
+    <div class="cuerpo">
+        <!--Carrusel-->
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/images/jamon y queso.jpg" class="d-block w-100" alt="jamón y queso">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/pan-de-queso.png" class="d-block w-100" alt="chipa">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/pizza.png" class="d-block w-100" alt="pizza">
+                </div>
+            </div>
+
+        </div>
+        <section class="seccion">
+            <div class="container is-fluid">
+                <div class="columns is-multiline">
+                    <% productos.forEach(producto => { %>
+
+                    <article class="column is-4 border">
+                        <!--Articulos-->
+                        <a href="/productos/detalle/<%= producto.id %>"><img src="/images/<%= producto.image %> " alt=""></a>
+                        <h2><%= producto.name %></h2>
+                        <p><%= producto.description %></p>
+                        <button class="vermas"><a href="/productos/detalle/<%= producto.id %> ">ver más</a></button>
+                        <button class="agregarcar"><a href="/carrito/carrito">Agregar al Carrito</a></button>
+                    </article>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
+    </div>
+    <%- include('partials/footer') %> 
+
+
+    
+</body>
+
+</html>

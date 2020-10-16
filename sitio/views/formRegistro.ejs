@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head') %> 
+
+    <body class="bodi">
+        <!--Barra de menú-->
+    
+        <%- include('partials/header') %> 
+    
+        <!--Barra del buscador + ingresar/iniciar sesión-->
+        <%- include('partials/nav') %> 
+
+
+<div class="ingreso ">
+
+    <img src="/images/logo.png" alt="logo" class="logo">
+
+    <h2>Registro de Usuario</h2>
+    <div class="">
+        <form method="POST">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name ="nombre">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Apellido</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name ="apellido">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name ="email">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Contraseña</label>
+              <input type="password" class="form-control" name="pass" >
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Reingresar contraseña</label>
+                <input type="password" class="form-control" name="pass2">
+              </div>
+
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary ml-5">Registrarse</button>
+            </div>
+          </form>
+    </div>
+</div>
+
+<%- include('partials/footer')  %> 
+
+</body>
+</html>

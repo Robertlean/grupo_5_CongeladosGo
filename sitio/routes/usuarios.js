@@ -3,7 +3,7 @@ const router = express.Router();
 const usuariosController = require('../controllers/usuariosController')
 
 const sessionUserCheck = require('../middlewares/sessionUserCheck');
-//const upImagePerfil = require("../middlewares/upImagePerfil");
+
 const registerValidator = require('../validator/registerValidator');
 const loginValidator = require('../validator/loginValidator');
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('partials/head') %> 
+  <body class="bodi">
+      <!--Barra de menú-->
+  
+      <%- include('partials/header') %> 
+  
+      <!--Barra del buscador + ingresar/iniciar sesión-->
+      <%- include('partials/nav') %> 
+
+  <nav class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#"><%= producto.name %></a></li>
+          <li class="breadcrumb-item active" aria-current="page"><%= producto.category %></li>
+        </ol>
+        <img src="/images/logo.png" alt="logotipo" class="rounded float-left">
+      </nav>
+  </nav>
+
+    <!--imagen con detalle-->
+    
+  <div class="container-fluid">
+    <div class="card mb-3" style="max-width: 613px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img class="photo" src="/images/<%= producto.image %> " width="190" height="210" alt="empanadas jyq">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="tituloImagen"><%= producto.name %></h5>
+              <br>
+              <h5 class="tituloImagen">$<%= producto.price %></h5>
+              <br>
+              <p class="textoImagen">Tiempo de Coccion: 60 min</p>
+              <p class="textoImagen"><%= producto.category %></p>
+              <p class="textoImagen">Cantidad x Venta: <%= producto.cantidadxVenta %></p>
+              <p class="textoImagen">Estock: <%= producto.stock %></p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+      <!--ingredientes, recomendaciones y coccion-->
+
+      <div class="container-fluid">
+        <div class="row row-cols-3">
+          <div class="col">
+            <h2><%= producto.description %></h2>
+            <p>masa: comun/integlar</p>
+            <p>relleno: Jamon y Queso</p>
+          </div>
+          <div class="col">
+            <h2>Recomendacion</h2>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="col">
+            <h2>Modo de coccion</h2>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+
+          <footer>
+            <!--botton de carrito-->
+              <button href="#" type="submit" class="btn btn-secondary btn-lg btn-block" >agregar al carrito</button>
+            </footer>
+        
+
+      </div>   
+
+    <!-- JavaScript Opcional -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <% include('partials/footer') %> 
+
+  </body>
+</html>

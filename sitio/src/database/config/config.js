@@ -1,8 +1,9 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": 123123,
-    "database": "database",
+    "password": null,
+    "database": "CongeladosGodb",
+    "port": "3306",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

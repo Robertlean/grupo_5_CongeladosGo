@@ -3,18 +3,15 @@ const users = require('../data/dbusers');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const fs = require('fs');
-//const db = require('../database/models')
 const { validationResult } = require('express-validator');
 
 module.exports = { //exporto un objeto literal con todos los metodos
     registro:function(req,res){
         res.render('formRegistro',{
-            title: "Registro de usuario | Congelados Go",
-            css:"style.css",
-            usuario: req.session.usuario
+            title: "Registro de usuario",
+            css:"style.css"
         })
     },
-    
     processRegistro:function(req, res){
         //let errors= validationResult(req);
         let lastid= 1000;
