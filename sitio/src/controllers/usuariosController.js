@@ -15,9 +15,11 @@ module.exports = { //exporto un objeto literal con todos los metodos
         })
     },
     
+    /* Proceso de Registro */
     processRegistro:function(req, res){
-        //let errors= validationResult(req);
+        let errors= validationResult(req);
         let lastid= 1000;
+        // Cambiar el siguiente código
         users.forEach(user =>{
             if(user.id > lastid){
                 lastid=user.id
@@ -50,7 +52,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         })
     },
 
-    processLogin: function(req, res){
+    processLogin: function(req, res, next){
         let errors = validationResult(req);
         if(errors.isEmpty()){
             users.forEach(usuario =>{
@@ -96,6 +98,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
             if(req.cookies.userCongeladosGo){
                 res.cookie('userCongeladoGo', '', {maxAge:-1})
             }
+            console.log(typeof usuario)
             return res.redirect('/')
         }
 }
