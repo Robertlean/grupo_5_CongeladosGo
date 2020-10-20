@@ -38,6 +38,56 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 numberPhone : 1141617154
             };
         //}
+/* if(errors.isEmpty()){
+            db.Users.create=({
+                nombre: req.body.nombre.trim(),
+                apellido: req.body.apellido.trim(),
+                email: req.body.email.trim(),
+                avatar:(req.files[0])?req.filename[0]:"default.png",
+                pass: bcrypt.hashSync(req.body.pass.trim(),10),
+                adress:req.body.direccion.trim(),
+                city: req.body.ciudad.trim(),
+                numberPhone : req.body.telefono.trim()
+            })
+            .then(resut => {
+                console.log(result)
+                return res.redirect('/registro')
+            })
+            .catch(errores => {
+                errors = {};
+                errores.errors.forEach(error => {
+                    if(error.path == "nombre"){
+                        errors["nombre"]= {};
+                        errors["nombre"]["msg"]= error.message
+                    };
+                    if(error.path == "apellido"){
+                        errors["apellido"] = {};
+                    errors["apellido"]["msg"] = error.message
+                };
+                if(error.path == "email"){
+                    errors["email"] = {};
+                    errors["email"]["msg"] = error.message
+                };
+                if (error.path == "pass") {
+                    errors["pass"] = {};
+                    errors["pass"]["msg"] = error.message
+                }    
+                    
+                })
+
+            })
+        }else{
+            res.render("formRegistro"),{
+                css = "style",
+                title: "Registro | Congelados Go",
+                errors: errors.mapped(),
+                inputs: req.body,
+                usuario: req.session.usuario
+            }
+        }
+        
+    },*/
+
         users.push(nuevoUsuario)
         fs.writeFileSync(path.join(__dirname,'..','data','users.json'),JSON.stringify(users),'utf-8')
             return res.redirect('/usuarios/ingreso')

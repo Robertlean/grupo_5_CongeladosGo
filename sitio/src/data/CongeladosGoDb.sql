@@ -25,6 +25,7 @@ USE `congeladosgodb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `congeladosgodb`.`categorias` (
   `idCategorias` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
   `descripcion` VARCHAR(1000) NULL DEFAULT NULL,
   PRIMARY KEY (`idCategorias`))
 ENGINE = InnoDB
@@ -62,8 +63,15 @@ CREATE TABLE IF NOT EXISTS `congeladosgodb`.`usuarios` (
   `idUsuarios` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL DEFAULT NULL,
   `apellido` VARCHAR(45) NULL DEFAULT NULL,
-  `direccion` VARCHAR(45) NULL DEFAULT NULL,
+  `email` VARCHAR(45) NULL DEFAULT NULL,
+  `direccion` VARCHAR(100) NULL DEFAULT NULL,
   `contraseña` VARCHAR(45) NULL DEFAULT NULL,
+  `avatar` VARCHAR (45) NULL DEFAULT NULL,
+  `ciudad` varchar(45) NOT NULL,
+  `fecha` NOT NULL,
+  `created_at` TIMESTAMP NULL,
+  `updated_at` TIMESTAMP NULL,
+  
   PRIMARY KEY (`idUsuarios`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
