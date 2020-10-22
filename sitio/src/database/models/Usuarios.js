@@ -28,8 +28,12 @@ module.exports = (sequelize, dataType) => {
             type:dataTypes.VARCHAR(45),
             allowNull:false
         },
-        Carrito_idCarrito:{
-            type:dataTypes.VARCHAR(10)
+        Ciudad:{
+            type:dataTypes.VARCHAR(45),
+            allowNull:false
+        },
+        Fecha:{
+            type:dataTypes.DATA(),
         },
         imagen: {
             type: dataTypes.STRING(100)

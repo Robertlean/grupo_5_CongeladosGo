@@ -1,18 +1,18 @@
-module.exports = (sequelize, dataType) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = "Porductos";
     let cols = {
         id:{
-            type:dataType.INTEGER(11),
+            type:dataTypes.INTEGER(11),
             allowNull:false,
             autoIncrement:true,
             primaryKey:true
         },
         nombre:{
-            type:dataType.VARCHAR(1000),
+            type:dataTypes.VARCHAR(1000),
             allowNull:false
         },
         imagen:{
-            type:dataType.STRING(45),
+            type:dataTypes.STRING(45),
             allowNull:false
         },
         descripcion:{
@@ -20,7 +20,7 @@ module.exports = (sequelize, dataType) => {
             allowNull:false
         },
         cantidadDeVentas:{
-            type:dataType.INTEGER(45),
+            type:dataTypes.INTEGER(45),
             allowNull:false
         },
         precio:{
@@ -28,7 +28,11 @@ module.exports = (sequelize, dataType) => {
             allowNull:false
         },
         Stock:{
-            type:dataType.INTEGER(11),
+            type:dataTypes.INTEGER(11),
+            allowNull:false
+        },
+        idCategorias:{
+            type:dataTypes.INTEGER(11),
             allowNull:false
         }
     }

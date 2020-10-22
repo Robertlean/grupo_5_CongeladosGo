@@ -1,5 +1,4 @@
 const productos= require('../data/dbProductos');
-//const dbDatanew = require('../data/dbDataNew');
 
 const fs = require('fs');
 const path = require('path');

@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `congeladosgodb`.`usuarios` (
   `direccion` VARCHAR(100) NULL DEFAULT NULL,
   `contraseña` VARCHAR(45) NULL DEFAULT NULL,
   `avatar` VARCHAR (45) NULL DEFAULT NULL,
-  `ciudad` varchar(45) NOT NULL,
+  `ciudad` VARCHAR (45) NOT NULL,
   `fecha` NOT NULL,
   `created_at` TIMESTAMP NULL,
   `updated_at` TIMESTAMP NULL,
