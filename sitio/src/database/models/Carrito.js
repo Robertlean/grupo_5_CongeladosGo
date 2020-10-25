@@ -3,7 +3,7 @@ module.exports = (sequelize, dataTypes) =>{
     let cols = {
         id:{
             type: dataTypes.INTEGER(11),
-            primaryKEy: true,
+            primaryKey: true,
             autoIncrement: true
         },
         idUsuario: {
@@ -18,6 +18,7 @@ module.exports = (sequelize, dataTypes) =>{
         tableName: "Carrito",
         timestamps: false
     }
+    
     
     const Carrito = sequelize.define(alias, cols, config)
 
