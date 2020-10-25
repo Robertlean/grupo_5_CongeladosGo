@@ -118,13 +118,10 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `congeladosgodb`.`carrito` (
   `idCarrito` INT(11) NOT NULL AUTO_INCREMENT,
-  `idVentas` INT(11) NULL DEFAULT NULL,
   `idProductos` INT(11) NULL DEFAULT NULL,
   `idUsuario` INT(11) NULL DEFAULT NULL,
-  `cantidad` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`idCarrito`),
   INDEX `idProductosFK_idx` (`idProductos` ASC),
-  INDEX `idVentasFK_idx` (`idVentas` ASC),
   INDEX `idUsuarioFK_idx` (`idUsuario` ASC),
   CONSTRAINT `idProductosFK`
     FOREIGN KEY (`idProductos`)
@@ -134,11 +131,6 @@ CREATE TABLE IF NOT EXISTS `congeladosgodb`.`carrito` (
   CONSTRAINT `idUsuarioFK`
     FOREIGN KEY (`idUsuario`)
     REFERENCES `congeladosgodb`.`usuarios` (`idUsuarios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `idVentasFK`
-    FOREIGN KEY (`idVentas`)
-    REFERENCES `congeladosgodb`.`ventas` (`idVentas`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
