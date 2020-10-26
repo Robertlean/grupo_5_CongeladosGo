@@ -21,7 +21,5 @@ module.exports = (sequelize, dataTypes) =>{
     
     const Carrito = sequelize.define(alias, cols, config)
 
-
-
     return Carrito
 }

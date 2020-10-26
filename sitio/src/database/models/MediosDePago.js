@@ -1,4 +1,4 @@
-module.export = (sequilize, dataTypes) => {
+module.export = (sequelize, dataTypes) => {
     let alias = "MediosDePagos"
     let cols = {
         id: {
@@ -18,6 +18,13 @@ module.export = (sequilize, dataTypes) => {
     }
     
     const mediosDePagos = sequelize.define(alias, cols, config)
+
+    mediosDePagos.associate = function(models){
+        mediosDePagos.belongTo(models.ventas,{
+            as: "ventas",
+            foreignKey: "id"
+        })
+    }
 
     return mediosDePagos
 }
