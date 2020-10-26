@@ -82,7 +82,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `congeladosgodb`.`mediodepago` (
   `idMedioDePago` INT(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` VARCHAR(45) NULL DEFAULT NULL,
+  `descripcion` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`idMedioDePago`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
