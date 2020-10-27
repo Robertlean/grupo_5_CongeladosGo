@@ -1,14 +1,14 @@
-module.export = (sequelize, dataTypes) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = "MediosDePagos"
     let cols = {
         id: {
-            type: dataTypes.INTERGER(11),
+            type: dataTypes.INTEGER(11),
             allowNull:false,
             autoIncrement:true,
             primaryKey:true
         },
         descripcion:{
-            type: dataTypes.VARCHAR(45),
+            type: dataTypes.STRING(45),
             allowNull:false
         } 
     };
@@ -20,9 +20,9 @@ module.export = (sequelize, dataTypes) => {
     const mediosDePagos = sequelize.define(alias, cols, config)
 
     mediosDePagos.associate = function(models){
-        mediosDePagos.belongTo(models.ventas,{
-            as: "ventas",
-            foreignKey: "id"
+        mediosDePagos.belongTo(models.MediosDePagos,{
+            as: "MediosDePagos",
+            foreignKey: "id_MediosDePago"
         })
     }
 

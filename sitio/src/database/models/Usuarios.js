@@ -1,4 +1,4 @@
-module.exports = (sequelize, dataType) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = "Usuarios";
     let cols = {
         id:{
@@ -8,15 +8,15 @@ module.exports = (sequelize, dataType) => {
             primaryKey:true
         },
         nombre:{
-            type:dataTypes.VARCHAR(45),
+            type:dataTypes.STRING(45),
             allowNull:false
         },
         apellido:{
-            type:dataTypes.VARCHAR(45),
+            type:dataTypes.STRING(45),
             allowNull:false
         },
         direccion:{
-            type:dataTypes.VARCHAR(45),
+            type:dataTypes.STRING(45),
             allowNull:false
         },
         email:{
@@ -25,15 +25,15 @@ module.exports = (sequelize, dataType) => {
             unique:true,
         },
         contraseña:{
-            type:dataTypes.VARCHAR(45),
+            type:dataTypes.STRING(45),
             allowNull:false
         },
         Ciudad:{
-            type:dataTypes.VARCHAR(45),
+            type:dataTypes.STRING(45),
             allowNull:false
         },
         Fecha:{
-            type:dataTypes.DATA(),
+            type:dataTypes.DATE(),
         },
         imagen: {
             type: dataTypes.STRING(100)
@@ -48,12 +48,12 @@ module.exports = (sequelize, dataType) => {
     
     Usuarios.associate = function(models){
 
-        Usuarios.hasOne(models.store,{
+        Usuarios.hasOne(models.Carrito,{
             as:"carrito",
             foreignKey:"id_usuario"
         })
 
-        Usuario.hasMany(models.domicilios, {
+        Usuarios.hasMany(models.domicilios, {
             as: "Domicilios",
             ForeignKey: "idUsuario",
         })

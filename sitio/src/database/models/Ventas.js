@@ -1,4 +1,4 @@
-module.export = (sequelize, dataTypes) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = "Ventas";
     let cols = {
         id:{
@@ -27,11 +27,11 @@ module.export = (sequelize, dataTypes) => {
     let Ventas = sequelize.define(alias,cols,config);
 
     Ventas.associate = function(models){
-        Ventas.belongsTo(models.Users,{
+        Ventas.belongsTo(models.Usuarios,{
             as:"responsable",
             foreignKey:"id_usuario"
         })
-        Ventas.hasMany(models.Products,{
+        Ventas.hasMany(models.Productos,{
             as:"productos",
             foreingKey:"id_tienda"
             

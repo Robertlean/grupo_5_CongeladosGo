@@ -8,7 +8,7 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey:true
         },
         nombre:{
-            type:dataTypes.VARCHAR(1000),
+            type:dataTypes.STRING(1000),
             allowNull:false
         },
         imagen:{
@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull:false
         },
         descripcion:{
-            type:dataTypes.VARCHAR(1000),
+            type:dataTypes.STRING(45),
             allowNull:false
         },
         cantidadDeVentas:{
@@ -37,21 +37,21 @@ module.exports = (sequelize, dataTypes) => {
         }
     }
     let config = {
-        tablaName: "Porductos",
+        tablaName: "Productos",
         timetamps:true,
         underscored: true
     }
-    const Porductos = sequelize.define(alias, cols, config);
+    const Productos = sequelize.define(alias, cols, config);
 
-    Porductos.associate = function(models){
-        Porductos.belongsTo(models.carrito,{
+    Productos.associate = function(models){
+        Productos.belongsTo(models.carrito,{
             as:"Carrito",
             foreignKey:"id_carrito"
         })
-        Porductos.belongsTo(models.Categorias,{
+        Productos.belongsTo(models.Categorias,{
             as:"Categorias",
             foreignKey:"id_categorias"
         })
     }
-    return Porductos;
+    return Productos;
 }

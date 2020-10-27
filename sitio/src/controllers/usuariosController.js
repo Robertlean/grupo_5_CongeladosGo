@@ -3,7 +3,7 @@ const users = require('../data/dbusers');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const fs = require('fs');
-//const db = require('../database/models');
+const db = require('../database/models');
 const { validationResult } = require('express-validator');
 
 module.exports = { //exporto un objeto literal con todos los metodos

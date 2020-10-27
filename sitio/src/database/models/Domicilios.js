@@ -36,7 +36,7 @@ module.exports = (sequelize,dataTypes) => {
     };
 
     let config = {
-        tableName: "domicilios",
+        tableName: "Domicilios",
         timestamps: false
     }
 
@@ -44,9 +44,9 @@ module.exports = (sequelize,dataTypes) => {
 
     Domicilio.associate = function(models) {
 
-        Domicilio.belongsTo(models.usuarios, {
-            as: "usuarios",
-            ForeignKey: "idUsuario",
+        Domicilio.belongsTo(models.Usuarios, {
+            as: "Usuarios",
+            ForeignKey: "Usuario",
         })
     }
 
