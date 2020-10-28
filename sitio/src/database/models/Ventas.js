@@ -26,17 +26,17 @@ module.exports = (sequelize, dataTypes) => {
     }
     let Ventas = sequelize.define(alias,cols,config);
 
-    Ventas.associate = function(models){
-        Ventas.belongsTo(models.Usuarios,{
+    /*Ventas.associate = function(models){
+        Ventas.belongsTo(models.usuarios,{
             as:"responsable",
             foreignKey:"id_usuario"
         })
-        Ventas.hasMany(models.Productos,{
+        /*Ventas.hasMany(models.Productos,{
             as:"productos",
             foreingKey:"id_tienda"
             
         })
-    }
+    }*/
 
     return Ventas;
 }
