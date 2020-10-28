@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.INTEGER(11),
             allowNull:false
         },
-        idCategorias:{
+        id_categorias:{
             type:dataTypes.INTEGER(11),
             allowNull:false
         }
@@ -43,8 +43,13 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Productos = sequelize.define(alias, cols, config);
 
+<<<<<<< HEAD
     /*Productos.associate = function(models){
         Productos.belongsTo(models.carrito,{
+=======
+    Productos.associate = function(models){
+        Productos.hasMany(models.Carrito,{
+>>>>>>> 4c9fde0dc223beb6ee35422b127686ab37db7e60
             as:"Carrito",
             foreignKey:"id_carrito"
         })
