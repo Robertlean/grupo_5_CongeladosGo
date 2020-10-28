@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
     const mediosDePagos = sequelize.define(alias, cols, config)
 
     mediosDePagos.associate = function(models){
-        mediosDePagos.belongTo(models.MediosDePagos,{
+        mediosDePagos.belongsTo(models.MediosDePagos,{
             as: "MediosDePagos",
             foreignKey: "id_MediosDePago"
         })

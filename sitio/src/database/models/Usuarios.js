@@ -53,10 +53,6 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey:"id_usuario"
         })
 
-        Usuarios.hasMany(models.domicilios, {
-            as: "Domicilios",
-            ForeignKey: "idUsuario",
-        })
     }
     return Usuarios;
 }
