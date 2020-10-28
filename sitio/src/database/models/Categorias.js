@@ -17,16 +17,16 @@ module.exports = (sequelize, dataTypes) => {
         }
     }
     let config = {
-        tablaName: "categorias",
+        tablaName: "Categorias",
         timetamps:false
     }
     const Categorias = sequelize.define(alias, cols, config);
 
-    Categorias.associate = function(models){
-        Categorias.hasOne(models.Productos,{
+    /*Categorias.associate = function(models){
+        Categorias.belongsTo(models.Productos,{
             as:"Productos",
             foreignKey:"id_Productos"
         })
-   }
+   }*/
     return Categorias;
 }

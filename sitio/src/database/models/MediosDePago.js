@@ -20,15 +20,9 @@ module.exports = (sequelize, dataTypes) => {
     const mediosDePagos = sequelize.define(alias, cols, config)
 
     mediosDePagos.associate = function(models){
-<<<<<<< HEAD
-        mediosDePagos.belongsTo(models.MediosDePagos,{
-            as: "MediosDePagos",
-            foreignKey: "id_MediosDePago"
-=======
         mediosDePagos.hasMany(models.Ventas,{
             as: "mediosDePagos",
             foreignKey: "id_ventas"
->>>>>>> 4c9fde0dc223beb6ee35422b127686ab37db7e60
         })
     }
 
