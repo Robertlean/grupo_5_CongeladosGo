@@ -9,8 +9,16 @@ const { validationResult } = require('express-validator');
 module.exports = { //exporto un objeto literal con todos los metodos
     registro:function(req,res){
         res.render('formRegistro',{
-            title: "Registro de usuario | Congelados Go",
+            title: "Registro de usuario",
             css:"style.css",
+            usuario: req.session.usuario
+        })
+    },
+
+    ingreso: function (req, res, next){
+        res.render('login', {
+            css:"style.css",
+            title: "Inicio de sesión",
             usuario: req.session.usuario
         })
     },
@@ -18,13 +26,6 @@ module.exports = { //exporto un objeto literal con todos los metodos
     /* Proceso de Registro */
     processRegistro:function(req, res){
         let errors= validationResult(req);
-        let lastid= 1000;
-        // Cambiar el siguiente código
-        users.forEach(user =>{
-            if(user.id > lastid){
-                lastid=user.id
-            }
-        } )
         //if(errors.isEmpty()){
             /*let nuevoUsuario={
                 id:lastid +1,
@@ -48,7 +49,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 direccion:req.body.direccion.trim(),
                 Ciudad: req.body.Ciudad.trim(),
             })
-            .then(resut => {
+            .then(result => {
                 console.log(result)
                 return res.redirect('/registro')
             })
@@ -77,8 +78,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
             })
         }else{
             res.render("formRegistro"),{
-                css : "style",
-                title: "Registro | Congelados Go",
+                css : "style.css",
+                title: "Registro",
                 errors: errors.mapped(),
                 inputs: req.body,
                 usuario: req.session.usuario
@@ -92,47 +93,45 @@ module.exports = { //exporto un objeto literal con todos los metodos
             return res.redirect('/usuarios/ingreso')*/
 
 
-    ingreso: function(req, res) {
-        res.render('formIngreso',{
-            title:"Ingresá a tu cuenta",
-            css:"style.css",
-            usuario:req.session.usuario
-        })
-    },
-
     processLogin: function(req, res, next){
         let errors = validationResult(req);
         if(errors.isEmpty()){
-            users.forEach(usuario =>{
-                if(usuario.email == req.body.email){
-                    req.session.usuario = {
-                       id: usuario.id,
-                       apodo: usuario.nombre + " " + usuario.apellido,
-                       email: usuario.email
-
+            db.Usuarios.findOne({
+                    where:{
+                        email: req.body.email
                     }
+            })
+            .then(usuario => {
+                req.session.usuario = {
+                    id: usuario.id,
+                    apodo: usuario.nombre + " " + usuario.apellido,
+                    email: usuario.email,
+                    avatar: usuario.imagen
                 }
-            });
-            if(req.body.recordar){
-                res.cookie('userCongeladosGo', req.session.usuario,{maxAge:1000*60*2})
-            }
-            res.redirect('/usuarios/perfil')
-            }else{
-                //res.send(errors.mapped())
-                res.render('formIngreso',{
-                    title:"Ingresá a tu cuenta",
-                    css: "style.css",
-                    errors: errors.mapped(),
-                    old:req.body,
-                    usuario: req.session.usuario
-                })
+                if(req.body.recordar){
+                    res.cookie('userCongeladosGo', req.session.usuario,
+                    {maxAge:1000*60*2})
+                }
+                return res.redirect('/usuario/ingreso')
+            })
+            .catch(error=>{
+                res.send(error)
+            })
+        }else{
+            res.render('formIngreso',{
+                title:"Ingresá a tu cuenta",
+                css: "style.css",
+                errors: errors.mapped(),
+                old:req.body,
+                usuario: req.session.usuario
+            })
         }
     },
         
         perfil:function(req, res){
             res.render('userPerfil',{
                 title: "Perfil de usuario",
-                productos: dbProducts.filter(producto =>{
+                productos: db.Productos.filter(producto =>{
                     return producto.category != ""
 
                 }),
@@ -147,7 +146,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 res.cookie('userCongeladoGo', '', {maxAge:-1})
             }
             console.log(typeof usuario)
-            return res.redirect('/')
+            return res.redirect('/perfil/usuario')
         }
 }
 

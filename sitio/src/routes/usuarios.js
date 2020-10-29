@@ -3,15 +3,15 @@ const router = express.Router();
 const usuariosController = require('../controllers/usuariosController')
 
 const sessionUserCheck = require('../middlewares/sessionUserCheck');
-//const upImagePerfil = require("../middlewares/upImagePerfil");
+const upImageAvatar  = require("../middlewares/upImageAvatar");
 const registerValidator = require('../validator/registerValidator');
-const loginValidator = require('../validator/loginValidator');
-
-router.get('/registro',usuariosController.registro);
-router.post('/registro',registerValidator,usuariosController.processRegistro);
+const loginValidator = require('../validator/loginvalidator');
 
 router.get('/ingreso',usuariosController.ingreso);
 router.post('/ingreso',loginValidator,usuariosController.processLogin);
+
+router.get('/registro',usuariosController.registro);
+router.post('/registro',upImageAvatar.any(),registerValidator,usuariosController.processRegistro);
 
 router.get('/perfil',sessionUserCheck, usuariosController.perfil);
 
