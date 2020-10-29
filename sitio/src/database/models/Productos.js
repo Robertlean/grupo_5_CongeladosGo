@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Porductos";
+    let alias = "Productos";
     let cols = {
         id:{
             type:dataTypes.INTEGER(11),
@@ -38,7 +38,7 @@ module.exports = (sequelize, dataTypes) => {
     }
     let config = {
         tablaName: "Productos",
-        timetamps:true,
+        timetamps:false,
         underscored: true
     }
     const Productos = sequelize.define(alias, cols, config);
@@ -49,7 +49,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey:"id_carrito"
         })
         Productos.belongsTo(models.Categorias,{
-            as:"Categorias",
+            as:"categorias",
             foreignKey:"id_categorias"
         })
     }

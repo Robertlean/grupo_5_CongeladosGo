@@ -16,7 +16,8 @@ module.exports = (sequelize, dataTypes) => {
             allowNull:false
         },
         idMedioDepago:{
-            type:dataTypes.INTEGER(11)
+            type:dataTypes.INTEGER(11),
+            allowNull: false
         }
     }
     let config = {
@@ -25,18 +26,6 @@ module.exports = (sequelize, dataTypes) => {
         underscored:true
     }
     let Ventas = sequelize.define(alias,cols,config);
-
-    /*Ventas.associate = function(models){
-        Ventas.belongsTo(models.usuarios,{
-            as:"responsable",
-            foreignKey:"id_usuario"
-        })
-        /*Ventas.hasMany(models.Productos,{
-            as:"productos",
-            foreingKey:"id_tienda"
-            
-        })
-    }*/
 
     return Ventas;
 }

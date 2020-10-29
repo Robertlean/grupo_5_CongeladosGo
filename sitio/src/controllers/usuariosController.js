@@ -26,7 +26,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
             }
         } )
         //if(errors.isEmpty()){
-            let nuevoUsuario={
+            /*let nuevoUsuario={
                 id:lastid +1,
                 firstName: req.body.nombre,
                 lastName: req.body.apellido,
@@ -36,18 +36,17 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 adress: "sin especificar",
                 city: "sin especificar",
                 numberPhone : 1141617154
-            };
-        //}
-/* if(errors.isEmpty()){
-            db.Users.create=({
+            };*/
+        
+    if(errors.isEmpty()){
+            db.Usuarios.create=({
                 nombre: req.body.nombre.trim(),
                 apellido: req.body.apellido.trim(),
                 email: req.body.email.trim(),
                 avatar:(req.files[0])?req.filename[0]:"default.png",
-                pass: bcrypt.hashSync(req.body.pass.trim(),10),
-                adress:req.body.direccion.trim(),
-                city: req.body.ciudad.trim(),
-                numberPhone : req.body.telefono.trim()
+                contraseña: bcrypt.hashSync(req.body.contraseña.trim(),10),
+                direccion:req.body.direccion.trim(),
+                Ciudad: req.body.Ciudad.trim(),
             })
             .then(resut => {
                 console.log(result)
@@ -68,9 +67,9 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     errors["email"] = {};
                     errors["email"]["msg"] = error.message
                 };
-                if (error.path == "pass") {
-                    errors["pass"] = {};
-                    errors["pass"]["msg"] = error.message
+                if (error.path == "contraseña") {
+                    errors["contraseña"] = {};
+                    errors["contraseña"]["msg"] = error.message
                 }    
                     
                 })
@@ -78,7 +77,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
             })
         }else{
             res.render("formRegistro"),{
-                css = "style",
+                css : "style",
                 title: "Registro | Congelados Go",
                 errors: errors.mapped(),
                 inputs: req.body,
@@ -86,13 +85,12 @@ module.exports = { //exporto un objeto literal con todos los metodos
             }
         }
         
-    },*/
-
-        users.push(nuevoUsuario)
-        fs.writeFileSync(path.join(__dirname,'..','data','users.json'),JSON.stringify(users),'utf-8')
-            return res.redirect('/usuarios/ingreso')
-
     },
+
+        /*users.push(nuevoUsuario)
+        fs.writeFileSync(path.join(__dirname,'..','data','users.json'),JSON.stringify(users),'utf-8')
+            return res.redirect('/usuarios/ingreso')*/
+
 
     ingreso: function(req, res) {
         res.render('formIngreso',{
