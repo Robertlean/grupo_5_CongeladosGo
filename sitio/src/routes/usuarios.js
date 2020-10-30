@@ -11,7 +11,7 @@ router.get('/ingreso',usuariosController.ingreso);
 router.post('/ingreso',loginValidator,usuariosController.processLogin);
 
 router.get('/registro',usuariosController.registro);
-router.post('/registro',upImageAvatar.any(),registerValidator,usuariosController.processRegistro);
+router.post('/registro',registerValidator,usuariosController.processRegistro);
 
 router.get('/perfil',sessionUserCheck, usuariosController.perfil);
 

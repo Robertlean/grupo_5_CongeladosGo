@@ -1,6 +1,6 @@
 const {check,validatorResult,body} = require('express-validator');
 const bcrypt = require('bcrypt');
-const dbUsuarios = require('../data/dbUsers');
+const db = require('../database/models');
 
 module.exports = [
     check('email')
@@ -13,6 +13,20 @@ module.exports = [
 
     body('email')
     .custom(function(value){
+        return db.Usuarios.findOne({
+            where:{
+                email:value
+            }
+            })
+            .then(user => {
+                if(user){
+                    return Promise.reject('Este mail ya está registrado')
+                }
+            })
+    }),
+
+    /*body('email')
+    .custom(function(value){
         let usuario = dbUsuarios.filter(user=>{ //filtro la base de datos y asigno el resultado a una varaible
           return user.email == value //aplico la condición si coincide el mail que el usuario ingresó en el imput con que está registrado
         })
@@ -23,7 +37,7 @@ module.exports = [
             return true //la valiación retorna true, es decir VALIDÓ CORRECTAMENTE
         }
     })
-    .withMessage('El usuario no está registrado'), //mensaje de error
+    .withMessage('El usuario no está registrado'), //mensaje de error*/
 
     body('password')
     .custom((value,{req})=>{

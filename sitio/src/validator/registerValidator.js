@@ -1,5 +1,5 @@
 const {check,validatorResult,body} = require('express-validator');
-const dbUsuarios = require('../data/dbusers');
+const db = require('../database/models');
 
 module.exports = [
     check('nombre')
@@ -13,8 +13,23 @@ module.exports = [
         min:1
     })
     .withMessage('Debes ingresar un apellido válido'),
-    
+
     body('email')
+    .custom(function(value){
+        return db.Usuarios.findOne({
+            where:{
+                email:value
+            }
+            })
+            .then(user => {
+                if(user){
+                    return Promise.reject('Este mail ya está registrado')
+                }
+            })
+    }),
+
+    
+    /*body('email')
     .custom(function(value){
         console.log(value)
 

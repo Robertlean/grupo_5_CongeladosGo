@@ -11,15 +11,15 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('formRegistro',{
             title: "Registro de usuario",
             css:"style.css",
-            usuario: req.session.usuario
+            
         })
     },
 
     ingreso: function (req, res, next){
-        res.render('login', {
+        res.render('formIngreso', {
             css:"style.css",
             title: "Inicio de sesión",
-            usuario: req.session.usuario
+            
         })
     },
     
@@ -38,20 +38,21 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 city: "sin especificar",
                 numberPhone : 1141617154
             };*/
-        
+            
     if(errors.isEmpty()){
-            db.Usuarios.create=({
+            console.log(req.body)
+            db.Usuarios.create({
                 nombre: req.body.nombre.trim(),
                 apellido: req.body.apellido.trim(),
                 email: req.body.email.trim(),
-                avatar:(req.files[0])?req.filename[0]:"default.png",
-                contraseña: bcrypt.hashSync(req.body.contraseña.trim(),10),
-                direccion:req.body.direccion.trim(),
-                Ciudad: req.body.Ciudad.trim(),
+                //avatar:(req.files[0])?req.filename[0]:"default.png",
+                contraseña: bcrypt.hashSync(req.body.pass.trim(),10),
+                //direccion:req.body.direccion.trim(),
+                //ciudad: req.body.Ciudad.trim(),
             })
             .then(result => {
-                console.log(result)
-                return res.redirect('/registro')
+                
+                return res.redirect('/usuarios/ingreso')
             })
             .catch(errores => {
                 errors = {};
@@ -77,12 +78,13 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
             })
         }else{
+            console.log(errors.errors)
             res.render("formRegistro"),{
                 css : "style.css",
                 title: "Registro",
                 errors: errors.mapped(),
                 inputs: req.body,
-                usuario: req.session.usuario
+                
             }
         }
         
@@ -103,10 +105,10 @@ module.exports = { //exporto un objeto literal con todos los metodos
             })
             .then(usuario => {
                 req.session.usuario = {
-                    id: usuario.id,
+                    id: usuario.idUsuario,
                     apodo: usuario.nombre + " " + usuario.apellido,
                     email: usuario.email,
-                    avatar: usuario.imagen
+                    
                 }
                 if(req.body.recordar){
                     res.cookie('userCongeladosGo', req.session.usuario,

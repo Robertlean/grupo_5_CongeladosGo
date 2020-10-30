@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Usuarios";
     let cols = {
-        id:{
+        idUsuarios:{
             type:dataTypes.INTEGER(11),
             allowNull:false,
             autoIncrement:true,
@@ -28,11 +28,11 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.STRING(45),
             allowNull:false
         },
-        Ciudad:{
+        ciudad:{
             type:dataTypes.STRING(45),
             allowNull:false
         },
-        Fecha:{
+        fecha:{
             type:dataTypes.DATE(),
         },
         imagen: {
@@ -40,7 +40,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     }
     let config = {
-        tableName:"Usuarios",
+        tableName:"usuarios",
         timestamps:true,
         underscored:true
     }
@@ -50,7 +50,7 @@ module.exports = (sequelize, dataTypes) => {
 
         Usuarios.hasOne(models.Carrito,{
             as:"carrito",
-            foreignKey:"id_usuario"
+            foreignKey:"idUsuario"
         })
 
         Usuarios.belongsToMany(models.Productos,{
