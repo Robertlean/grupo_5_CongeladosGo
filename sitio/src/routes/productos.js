@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const multer =require ('multer');
+const path = require('path');
+const sessionUserCheck = require("../middlewares/sessionUserCheck")
 
 let storage = multer.diskStorage({
     destination:(req,file,callback)=>{
@@ -23,10 +25,8 @@ router.get('/agregar', productosController.agregar)
 router.post('/agregar', upload.any(), productosController.publicar)
 
 //router.get('editar/:id',productosController.forEditar)
-router.put('editar/:id',productosController.editar)
+router.put('/editar/:id',upload.any(), productosController.editar)
 
-//router.delete('delete/:id',productosController.delete)
-
+//router.delete('delete/:id',productosController.eliminar)
 
 module.exports=router;
-

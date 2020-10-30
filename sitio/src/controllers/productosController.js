@@ -1,4 +1,4 @@
-const productos= require('../data/dbProductos');
+const dbProductos= require('../data/dbProductos');
 const db = require("../database/models");
 const fs = require('fs');
 const path = require('path');
@@ -38,7 +38,7 @@ const {validationResult} = require("express-validator")
     productos: function (req, res, next){
         let categorias;
         db.Categorias.findAll({
-            attributes:["ombre"]
+            attributes:["nombre"]
         })
         .then(elementos => {
             categorias = elementos
