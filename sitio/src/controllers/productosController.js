@@ -164,8 +164,8 @@ const {validationResult} = require("express-validator")
         let idProducto = req.params.id;
         dbProductos.forEach(producto=>{
             if(producto.id == idProducto){
-                let aEliminar = dbProducts.indexOf(producto);
-                dbProductos.splice(aEliminar,1);
+                let Eliminar = dbProducts.indexOf(producto);
+                dbProductos.splice(Eliminar,1);
             }
         })
         fs.writeFileSync(path.join(__dirname, '../data/products.json'), JSON.stringify(dbProducts));
