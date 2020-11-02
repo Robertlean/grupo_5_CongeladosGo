@@ -21,12 +21,13 @@ router.get('/listar', productosController.listar)
 router.get('/detalle/:id', productosController.detalle)
 //muestra el form para agregar produto
 router.get('/agregar', productosController.agregar)
+router.get('/cart',sessionUserCheck, productosController.carrito)
 //procesa los datos y agrega producto
 router.post('/agregar', upload.any(), productosController.publicar)
 
-//router.get('editar/:id',productosController.forEditar)
+router.get('editar/:id',productosController.form)
 router.put('/editar/:id',upload.any(), productosController.editar)
 
-//router.delete('delete/:id',productosController.eliminar)
+router.delete('/delete/:id',productosController.eliminar)
 
 module.exports=router;

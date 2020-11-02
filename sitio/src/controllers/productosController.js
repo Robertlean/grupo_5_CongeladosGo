@@ -1,6 +1,5 @@
 const dbProductos= require('../data/dbProductos');
 const db = require("../database/models");
-const fs = require('fs');
 const path = require('path');
 const {validationResult} = require("express-validator")
  module.exports = { //exporto un objeto literal con todos los metodos
@@ -12,19 +11,19 @@ const {validationResult} = require("express-validator")
         
         db.Productos.findOne({
             where:{
-                idProduct: idProducto
+                id: idProducto
             }
-        }).then(Productos => {
+        }).then(productos => {
             db.Productos.findAll({
                 where:{
-                    idCategoria: Productos.idCategoria
+                    idcategoria: productos.idcategoria
                 }
             }).then(recomendacion =>{
                 res.render('detallesProducto', {
                     title: Productos.nombre,
                     producto : Productos,
                     recomendaciones: recomendacion,
-                    css:"styledetallesProductos",
+                    css:"style.css",
                     usuario: req.session.usuario
                 })
             })
@@ -59,7 +58,7 @@ const {validationResult} = require("express-validator")
                 title: "Productos",
                 categorias : categorias,
                 productos: productos,
-                css: "styledetallesProductos",
+                css: "styledetallesProductos.css",
                 usuario: req.session.usuario
             })
         })
@@ -69,18 +68,78 @@ const {validationResult} = require("express-validator")
     },
 
     //Falta seguir modificando desde acá
-    agregar:function(req,res){
-        let category;
-        if (req.query.category){
-            categoria = req.query.category;
-        }
-        res.render('formProductos',{
-            title:"Agregar Producto",
-            category: category,
-            css:"style.css",
+    agregar:function(req,res, next){
+        const db = require("../database/models");
+        db.Categorias.findAll()
+        .then(send =>{
+            res.render('formProductos',{
+                title:"Agregar Producto",
+                category: category,
+                css:"style.css",
+                usuario: req.session.usuario,
+                categorias: send
+            })
+        })
+        .catch(error => {
+            res.send(error)
+        })        
+    },
 
+    carrito: function (req, res, next){
+        res.render('Carrito',{
+            css:'productCart.css',
+            title:"Carrito de compras",
+            usuario: req.session.usuario
         })
     },
+
+    crear: function(req, res, next){
+        let errores = validationResult(req);
+        if (errores.isEmpty()){
+            db.Productos.create({
+                nombre: req.body.nombre.trim(),
+                precio: req.body.precio.trim(),
+                idCategoria: req.body.categoria.trim(),
+                stock: req.body.stock.trim(),
+                descripcion: req.body.descripcion.trim(),
+                imagen: (req.files[0] ? req.files[0].filename : "default-image.png")
+            })
+            .then(res.redirect("/products"))
+            .catch(error => {
+                res.send(error)
+            })            
+        }
+        else{
+            res.render("formAgregarProducto",{
+                css:"style.css",
+                title: "Agregar Producto",
+                error: error.mapped(),
+                inputs: req.body,
+                usuario: req.session.usuario
+            })
+        }
+    },
+
+    form: function (req, res, next){
+        let id = req. params.id
+        db.Productos.findOne({
+            where:{
+                id:id
+            }
+        })
+        .then(elemento => {
+            res.render("EditarProducto",{
+                producto: elemento,
+                title : "Modificar producto",
+                css: "style.css",
+                usuario:req.session.usuario
+            })
+        })
+        .catch(error => {
+            res.send(error)
+        })
+    },
+
     publicar:function(req,res,next){
         let lastID = 1;
         productos.forEach(producto=>{
@@ -107,67 +166,34 @@ const {validationResult} = require("express-validator")
     },
     
 
-    show:function(req,res){
-        let idProducto = req.params.id;
-        let flap = req.params.flap;
-
-        let activeDetail;
-        let activeEdit;
-        let showDetail;
-        let showEdit;
-
-        if(flap == "show"){
-            activeDetail = "active";
-            showDetail = "show"
-        }else{
-            activeEdit = "active";
-            showEdit = "show";
-        } 
-
-        let resultado = dbProducts.filter(producto=>{
-            return producto.id == idProducto
-        })
-
-        res.render('productShow',{
-            title: "Ver / Editar Producto",
-            producto:resultado[0],
-            total:dbProductos.length,
-            css:"style.css",
-            activeDetail: activeDetail,
-            activeEdit: activeEdit,
-            showDetail:showDetail,
-            showEdit:showEdit,
-            usuario:req.session.usuario
-
-
-        })
-    },
-    editar:function(req,res){
+    
+    editar:function(req, res, next){
         let idProducto = req.params.id;
 
-        dbProductos.forEach(producto => {
-            if (producto.id == idProducto) {
-                producto.id = Number(req.body.id);
-                producto.name = req.body.name.trim();
-                producto.price = Number(req.body.price);
-                producto.category = req.body.category.trim();
-                producto.description = req.body.description.trim();
-                producto.image = (req.files[0]) ? req.files[0].filename : producto.image
+        db.Productos.update({
+           nombre: req.body.nombre,
+           precio: req.body.precio,
+           categoria: req.body.categoria,
+           stock: req.body.stock,
+           descripcion: req.body.stock,
+           imahen: (req.files[0])?req.files[0].filename : productos.imagen
+        },{
+            where: {
+                idProducto: idProducto
             }
         })
-
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'), JSON.stringify(dbProducts))
-        res.redirect('/productos/show/' + idProducto)
-
     },
+
     eliminar:function(req,res){
         let idProducto = req.params.id;
-        dbProductos.forEach(producto=>{
-            if(producto.id == idProducto){
-                let aEliminar = dbProducts.indexOf(producto);
-                dbProductos.splice(aEliminar,1);
+        fb.Productos.destroy({
+            where: {
+                idProducto: idProducto
             }
         })
+        res.redirect('/users/administrador')
+
+
         fs.writeFileSync(path.join(__dirname, '../data/products.json'), JSON.stringify(dbProducts));
         res.redirect('/dbusers/profile')
     }

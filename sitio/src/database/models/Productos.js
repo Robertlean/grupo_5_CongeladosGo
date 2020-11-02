@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.INTEGER(11),
             allowNull:false
         },
-        id_categorias:{
+        idcategorias:{
             type:dataTypes.INTEGER(11),
             allowNull:false
         }
