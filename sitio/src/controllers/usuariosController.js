@@ -29,12 +29,12 @@ module.exports = { //exporto un objeto literal con todos los metodos
         //if(errors.isEmpty()){
             /*let nuevoUsuario={
                 id:lastid +1,
-                firstName: req.body.nombre,
-                lastName: req.body.apellido,
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
                 email: req.body.email,
                 //avatar:req.files[0].filename,
-                password: bcrypt.hashSync(req.body.pass,10),
-                adress: "sin especificar",
+                pass: bcrypt.hashSync(req.body.pass,10),
+                direccion: "sin especificar",
                 city: "sin especificar",
                 numberPhone : 1141617154
             };*/

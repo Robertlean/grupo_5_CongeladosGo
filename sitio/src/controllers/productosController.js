@@ -186,9 +186,16 @@ const {validationResult} = require("express-validator")
 
     eliminar:function(req,res){
         let idProducto = req.params.id;
+<<<<<<< HEAD
         fb.Productos.destroy({
             where: {
                 idProducto: idProducto
+=======
+        dbProductos.forEach(producto=>{
+            if(producto.id == idProducto){
+                let Eliminar = dbProducts.indexOf(producto);
+                dbProductos.splice(Eliminar,1);
+>>>>>>> 11efb5ef7be7603f5b299d679734b89000f8ddcd
             }
         })
         res.redirect('/users/administrador')
