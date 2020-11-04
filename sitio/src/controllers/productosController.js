@@ -1,24 +1,25 @@
-const dbProductos= require('../data/dbProductos');
+const Productos= require('../data/dbProductos');
 const db = require("../database/models");
 const path = require('path');
 const {validationResult} = require("express-validator")
  module.exports = { //exporto un objeto literal con todos los metodos
     listar:function(req,res){
-        res.send(productos)
+        res.send(Productos)
     },
     detalle: function(req, res, next) {
         let idProducto = req.params.id;
         
         db.Productos.findOne({
             where:{
-                id: idProducto
+                idProductos: idProducto
             }
         }).then(productos => {
-            db.Productos.findAll({
+            res.send(productos)
+         /*    db.Productos.findAll({
                 where:{
-                    idcategoria: productos.idcategoria
+                    idCategorias: productos.idcategoria
                 }
-            }).then(recomendacion =>{
+            }).then(recomendacion =>{ */
                 res.render('detallesProducto', {
                     title: Productos.nombre,
                     producto : Productos,
@@ -26,10 +27,13 @@ const {validationResult} = require("express-validator")
                     css:"style.css",
                     usuario: req.session.usuario
                 })
-            })
+          /*   })
             .catch(error => {
                 res.send(error)
-            })
+            }) */
+        })
+        .catch(error => {
+            res.send(error)
         })
 
     },
@@ -186,16 +190,9 @@ const {validationResult} = require("express-validator")
 
     eliminar:function(req,res){
         let idProducto = req.params.id;
-<<<<<<< HEAD
         fb.Productos.destroy({
             where: {
                 idProducto: idProducto
-=======
-        dbProductos.forEach(producto=>{
-            if(producto.id == idProducto){
-                let Eliminar = dbProducts.indexOf(producto);
-                dbProductos.splice(Eliminar,1);
->>>>>>> 11efb5ef7be7603f5b299d679734b89000f8ddcd
             }
         })
         res.redirect('/users/administrador')

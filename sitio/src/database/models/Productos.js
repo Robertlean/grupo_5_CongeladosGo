@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Productos";
     let cols = {
-        id:{
+        idProductos:{
             type:dataTypes.INTEGER(11),
             allowNull:false,
             autoIncrement:true,
@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.INTEGER(11),
             allowNull:false
         },
-        idcategorias:{
+        idCategorias:{
             type:dataTypes.INTEGER(11),
             allowNull:false
         }
@@ -43,21 +43,19 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Productos = sequelize.define(alias, cols, config);
 
-    Productos.associate = function(models){
-        Productos.hasMany(models.Carrito,{
-            as:"Carrito",
-            foreignKey:"id_carrito"
-        })
+    /*Productos.associate = function(models){
+        
         Productos.belongsTo(models.Categorias,{
             as:"categorias",
-            foreignKey:"id_categorias"
+            foreignKey:"idCategorias"
         })
         Productos.belongsToMany(models.Usuarios,{
             as:"Usuarios",
-            through:"Ventas",
+            through:"Carrito",
             foreignKey: "idProductos",
-            otherKey : 'idUsuarios'//la otra clave foranea del otro modelo en cuestion en esa tabla intermedia
+            otherKey:"idUsuarios",
+            timestamps: false
         })
-    }
+    }*/
     return Productos;
 }

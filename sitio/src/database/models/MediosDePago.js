@@ -19,12 +19,12 @@ module.exports = (sequelize, dataTypes) => {
     
     const mediosDePagos = sequelize.define(alias, cols, config)
 
-    mediosDePagos.associate = function(models){
+   /*  mediosDePagos.associate = function(models){
         mediosDePagos.hasMany(models.Ventas,{
             as: "mediosDePagos",
             foreignKey: "id_ventas"
         })
-    }
+    } */
 
     return mediosDePagos
 }

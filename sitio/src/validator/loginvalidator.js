@@ -11,7 +11,7 @@ module.exports = [
     .isLength(1)
     .withMessage('Debes ingresar una contraseña'),
 
-    body('email')
+    /* body('email')
     .custom(function(value){
         return db.Usuarios.findOne({
             where:{
@@ -19,42 +19,29 @@ module.exports = [
             }
             })
             .then(user => {
-                if(user){
+                if(!user){
                     return Promise.reject('Este mail ya está registrado')
                 }
             })
-    }),
-
-    /*body('email')
-    .custom(function(value){
-        let usuario = dbUsuarios.filter(user=>{ //filtro la base de datos y asigno el resultado a una varaible
-          return user.email == value //aplico la condición si coincide el mail que el usuario ingresó en el imput con que está registrado
-        })
-        
-        if(usuario == false){ //si no hay resultados
-            return false //la validación retorna false, es decir NO PASO LA VALIDACIÓN
-        }else{
-            return true //la valiación retorna true, es decir VALIDÓ CORRECTAMENTE
-        }
-    })
-    .withMessage('El usuario no está registrado'), //mensaje de error*/
+    }),  */
 
     body('password')
     .custom((value,{req})=>{
-        let result = true;
-        dbUsuarios.forEach(user => {
-            if(user.email == req.body.email){
-                if(!bcrypt.compareSync(value,user.password)){
-                    result = false
-                }
+       
+        return db.Usuarios.findOne({
+            where:{
+                email:req.body.email
             }
-        });
-        if(result == false){
-            return false
-        }else{
-            return true
-        }
+        })
+        .then(user => {
+/*             console.log(user)
+ */            if(!bcrypt.compareSync(value,user.dataValues.contraseña)){ 
+                return Promise.reject('estas mal')
+            }
+        })
+        .catch(() => {
+            return Promise.reject('Credenciales inválidas')
+        })
     })
-    .withMessage("Contraseña incorrecta")
 
 ]

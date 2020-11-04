@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 const fs = require('fs');
 const db = require('../database/models');
-const { validationResult } = require('express-validator');
+const { validationResult, body } = require('express-validator');
 
 module.exports = { //exporto un objeto literal con todos los metodos
     registro:function(req,res){
@@ -25,22 +25,10 @@ module.exports = { //exporto un objeto literal con todos los metodos
     
     /* Proceso de Registro */
     processRegistro:function(req, res){
+        
         let errors= validationResult(req);
-        //if(errors.isEmpty()){
-            /*let nuevoUsuario={
-                id:lastid +1,
-                nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                email: req.body.email,
-                //avatar:req.files[0].filename,
-                pass: bcrypt.hashSync(req.body.pass,10),
-                direccion: "sin especificar",
-                city: "sin especificar",
-                numberPhone : 1141617154
-            };*/
             
     if(errors.isEmpty()){
-            console.log(req.body)
             db.Usuarios.create({
                 nombre: req.body.nombre.trim(),
                 apellido: req.body.apellido.trim(),
@@ -55,27 +43,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 return res.redirect('/usuarios/ingreso')
             })
             .catch(errores => {
-                errors = {};
-                errores.errors.forEach(error => {
-                    if(error.path == "nombre"){
-                        errors["nombre"]= {};
-                        errors["nombre"]["msg"]= error.message
-                    };
-                    if(error.path == "apellido"){
-                        errors["apellido"] = {};
-                    errors["apellido"]["msg"] = error.message
-                };
-                if(error.path == "email"){
-                    errors["email"] = {};
-                    errors["email"]["msg"] = error.message
-                };
-                if (error.path == "contraseña") {
-                    errors["contraseña"] = {};
-                    errors["contraseña"]["msg"] = error.message
-                }    
-                    
-                })
-
+                res.send(errores)
             })
         }else{
             console.log(errors.errors)
@@ -89,11 +57,6 @@ module.exports = { //exporto un objeto literal con todos los metodos
         }
         
     },
-
-        /*users.push(nuevoUsuario)
-        fs.writeFileSync(path.join(__dirname,'..','data','users.json'),JSON.stringify(users),'utf-8')
-            return res.redirect('/usuarios/ingreso')*/
-
 
     processLogin: function(req, res, next){
         let errors = validationResult(req);
@@ -114,7 +77,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     res.cookie('userCongeladosGo', req.session.usuario,
                     {maxAge:1000*60*2})
                 }
-                return res.redirect('/usuario/ingreso')
+                return res.redirect('/')
             })
             .catch(error=>{
                 res.send(error)
@@ -133,10 +96,6 @@ module.exports = { //exporto un objeto literal con todos los metodos
         perfil:function(req, res){
             res.render('userPerfil',{
                 title: "Perfil de usuario",
-                productos: db.Productos.filter(producto =>{
-                    return producto.category != ""
-
-                }),
                 css: "style.css",
                 usuario:req.session.usuario
 

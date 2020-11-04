@@ -139,7 +139,7 @@ img{
 }
 .container{    
     position: relative;
-    left: -111px;
+    /* left: -111px; */
 }
 .btn-block{
     background-color: teal;

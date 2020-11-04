@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         direccion:{
             type:dataTypes.STRING(45),
-            allowNull:false
+            allowNull:true
         },
         email:{
             type:dataTypes.STRING(45),
@@ -25,12 +25,12 @@ module.exports = (sequelize, dataTypes) => {
             unique:true,
         },
         contraseña:{
-            type:dataTypes.STRING(45),
+            type:dataTypes.STRING(100),
             allowNull:false
         },
         ciudad:{
             type:dataTypes.STRING(45),
-            allowNull:false
+            allowNull:true
         },
         fecha:{
             type:dataTypes.DATE(),
@@ -46,18 +46,15 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Usuarios = sequelize.define(alias,cols,config);
     
-    Usuarios.associate = function(models){
-
-        Usuarios.hasOne(models.Carrito,{
-            as:"carrito",
-            foreignKey:"idUsuario"
-        })
+    /*Usuarios.associate = function(models){
 
         Usuarios.belongsToMany(models.Productos,{
             as:"Productos",
-            through:"Ventas",
-            foreignKey: "idUsuarios"
+            through:"Carrito",
+            foreignKey: "idUsuario",
+            otherKey:"idProductos",
+            timestamps: false
         })
-    }
+    }*/
     return Usuarios;
 }

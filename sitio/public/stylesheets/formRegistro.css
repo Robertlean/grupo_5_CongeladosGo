@@ -2,13 +2,13 @@
 
 
 
-.columns{
+/* .columns{
     background-color: #181818;
-}
+} */
 img{ 
     width: 253px;
     height: 235px;
-    margin-left: 190px;
+    /* margin-left: 190px; */
 }
 h1{
     display: block;
