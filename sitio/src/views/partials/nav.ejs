@@ -20,6 +20,7 @@
                 <input class="input" type="text" placeholder="Buscar">
             </div>
             <div class="control">
+             
                 <a class="button is-info color-gray">
                     <i class="fas fa-search"></i>
                 </a>
@@ -31,9 +32,56 @@
     <!--Ingreso sesión/ carrito-->
     <ul class="itemsSesion">
         <!--Aquí deberá ir el html al ingreso-->
-        <li><a href="/usuarios/ingreso">INGRESAR</a></li>
-        <li><a href="/usuarios/registro">REGISTRARSE</a></li>
-        <li><a href="/">SALIR</a></li>
+        
+
+        <% if (typeof user != "undefined" && user) { %>
+            <% if (user.rol == "store") { %>
+                <a href=""><img src="/images/logos/<%=user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
+            <% } else{%>
+                <a href=""><img src="/images/users/<%=user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
+            <% } %>
+           
+
+        <% } else{%>
+        <a href=""><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+        <% } %>
+        
+        
+
+        
+            <% if (typeof locals.user != "undefined") { %>
+               
+                <li class="">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-alt "></i>  Mi cuenta
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/userios/pelfil">Mi perfil</a>
+                      <a class="dropdown-item" href="">Cambiar contraseña</a>
+                      
+                      <% if (typeof user != "undefined" && user.rol=="admin") { %>
+                        <div class="dropdown-divider"></div>
+                        
+                        <% } %>
+                        
+                    </div>
+                  </li>
+                
+            <% } else{ %>
+            
+                <li>
+                    <a href="/userios/ingreso">Ingresá <i class="fas fa-sign-in-alt "></i></a>
+                </li>
+                <li>
+                    <a href="/userios/registro">Creá tu cuenta <i class="far fa-address-card "></i></a>
+                </li>
+                <li>
+                    <a  href="/userios/logout">Cerrar sesión</a>
+                </li>
+              
+                
+            <% } %>
+        
 
         <!--Aquí deberá ir el carrito de compra-->
         <li><a href="/carrito/carrito"><i class="fas fa-shopping-cart"></i></a></li>
