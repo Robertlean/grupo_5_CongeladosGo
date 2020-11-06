@@ -12,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull:false
         },
         imagen:{
-            type:dataTypes.STRING(45),
+            type:dataTypes.STRING(100),
             allowNull:false
         },
         descripcion:{
@@ -37,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     }
     let config = {
-        tablaName: "Productos",
+        tablaName: "productos",
         timetamps:false,
         underscored: true
     }

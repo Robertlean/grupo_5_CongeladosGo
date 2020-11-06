@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('partials/head') %>
+  <%- include('partials/head') %>
+  <script src="/javascripts/productAdd.js"></script>
+  <body>
+    <%- include('partials/header') %>
 
-<body class="bodi">
-  <!--Barra de menú-->
+    <div class="container">
+      <section class="login">
+        <div class="row productos">
+          <div class="titulo col-12">
 
-  <%- include('partials/header')  %>
+            <h2><%= title %></h2>
 
-  <!--Barra del buscador + ingresar/iniciar sesión-->
-
-  <%- include('partials/nav')  %>
-
-  <section class="cuerpo">
-    
-           <form action="agregar" method="POST" enctype="multipart/form-data" id="productAdd">
+          </div>
+          <div class="col-12">
+            <div class="contenido">
+              <div class="row py-3 px-5">
+                <div class="col-12 col-md-5 col-lg-6 col-xl-4 d-flex flex-column justify-content-center">
+                  <figure>
+                  <img id="vistaPrevia" src="" alt="" class="w-75"/>
+                  </figure>
+                </div>
+                <div class="col-12 col-md-7 col-lg-6 col-xl-8 ">
+                  <form action="" method="POST" enctype="multipart/form-data" id="productAdd">
 
                     <div class="form-row">
 
@@ -26,7 +35,7 @@
                       </div>
 
                       <div class="form-group col-12 col-xl-6">
-                        <label for="categoria"></label>
+                        <label for="Titulo"></label>
                         <select name="categoria" id="categoria" class="form-control <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>">
                           <option value="">Eligí la categoría</option>
                           <% if (typeof oldCategoria != 'undefined') { %>
@@ -52,19 +61,11 @@
                       </div>
 
                       <div class="form-group col-12 col-xl-6">
-                        <label for="stock"></label>
+                        <label for="descuento"></label>
                         <input type="number"
-                        class="form-control <%= (typeof old != 'undefined' && old.stock && !errors.stock)?"is-valid":(typeof errors != 'undefined' && errors.stock)?"is-invalid": ""  %>"
-                        id="stock" value="<%= (typeof old != 'undefined' && old.stock)?old.stock:'' %>" placeholder="stock" name="stock" min=1 />
-                        <small class="text-danger" id="errorStock"><%= (typeof errors != 'undefined' && errors.stock)?errors.stock.msg: "" %> </small>
-                      </div>
-
-                      <div class="form-group col-12 col-xl-6">
-                        <label for="cantidad"></label>
-                        <input type="number"
-                        class="form-control <%= (typeof old != 'undefined' && old.cantidad && !errors.cantidad)?"is-valid":(typeof errors != 'undefined' && errors.cantidad)?"is-invalid": ""  %>"
-                        id="cantidad" value="<%= (typeof old != 'undefined' && old.cantidad)?old.cantidad:'' %>" placeholder="cantidad" name="cantidad" min=1 />
-                        <small class="text-danger" id="errorCantidad"><%= (typeof errors != 'undefined' && errors.cantidad)?errors.cantidad.msg: "" %> </small>
+                        class="form-control <%= (typeof old != 'undefined' && old.descuento && !errors.descuento)?"is-valid":(typeof errors != 'undefined' && errors.descuento)?"is-invalid": ""  %>"
+                        id="descuento" value="<%= (typeof old != 'undefined' && old.descuento)?old.descuento:'' %>" placeholder="descuento" name="descuento" min=1 />
+                        <small class="text-danger" id="errorDescuento"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %> </small>
                       </div>
 
                       <div class="form-group col-12">
@@ -92,9 +93,14 @@
                     
                     </div>
                   </form>
-         
-  </section>
-  <%- include('partials/footer')  %>
-</body>
-
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <%- include('partials/footer') %>
+  </body>
 </html>

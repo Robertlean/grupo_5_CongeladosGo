@@ -27,7 +27,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
     processRegistro:function(req, res){
         
         let errors= validationResult(req);
-            
+        console.log(req.body)    
     if(errors.isEmpty()){
             db.Usuarios.create({
                 nombre: req.body.nombre.trim(),

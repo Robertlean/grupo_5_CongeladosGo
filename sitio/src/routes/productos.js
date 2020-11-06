@@ -4,16 +4,20 @@ const multer =require ('multer');
 const path = require('path');
 const sessionUserCheck = require("../middlewares/sessionUserCheck")
 
-let storage = multer.diskStorage({
+const storage = multer.diskStorage({
+
     destination:(req,file,callback)=>{
-        callback(null,'public/images/products')
+        console.log(req.body.images)
+        callback(null,'public/images')
     },
     filename:(req,file,callback)=>{
-        callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+        req.fileSave = file.fieldname + '-' + Date.now() + path.extname(file.originalname)
+        callback(null, req.fileSave)
+
     }
 })
 
-let upload = multer({storage:storage});
+const upload = multer({storage:storage});
 
 const productosController = require('../controllers/productosController')
 
@@ -23,7 +27,7 @@ router.get('/detalle/:id', productosController.detalle)
 router.get('/agregar', productosController.agregar)
 router.get('/cart',sessionUserCheck, productosController.carrito)
 //procesa los datos y agrega producto
-router.post('/agregar', upload.any(), productosController.publicar)
+router.post('/agregar', upload.any(), productosController.crear)
 
 router.get('editar/:id',productosController.form)
 router.put('/editar/:id',upload.any(), productosController.editar)

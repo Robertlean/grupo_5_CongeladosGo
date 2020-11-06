@@ -1,7 +1,10 @@
 const Productos= require('../data/dbProductos');
 const db = require("../database/models");
 const path = require('path');
+const fs = require('fs')
 const {validationResult} = require("express-validator")
+
+
  module.exports = { //exporto un objeto literal con todos los metodos
     listar:function(req,res){
         res.send(Productos)
@@ -73,15 +76,14 @@ const {validationResult} = require("express-validator")
 
     //Falta seguir modificando desde acá
     agregar:function(req,res, next){
-        const db = require("../database/models");
         db.Categorias.findAll()
-        .then(send =>{
+        .then(categorias =>{
+
             res.render('formProductos',{
                 title:"Agregar Producto",
-                category: category,
                 css:"style.css",
                 usuario: req.session.usuario,
-                categorias: send
+                categorias: categorias
             })
         })
         .catch(error => {
@@ -99,6 +101,7 @@ const {validationResult} = require("express-validator")
 
     crear: function(req, res, next){
         let errores = validationResult(req);
+        console.log(req.body)
         if (errores.isEmpty()){
             db.Productos.create({
                 nombre: req.body.nombre.trim(),
@@ -108,7 +111,9 @@ const {validationResult} = require("express-validator")
                 descripcion: req.body.descripcion.trim(),
                 imagen: (req.files[0] ? req.files[0].filename : "default-image.png")
             })
-            .then(res.redirect("/products"))
+            .then(respuesta =>{
+                res.redirect("/productos")
+            })
             .catch(error => {
                 res.send(error)
             })            
