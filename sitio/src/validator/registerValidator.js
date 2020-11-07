@@ -29,28 +29,7 @@ module.exports = [
                 }
             })
     }),
-
     
-    /*body('email')
-    .custom(function(value){
-        console.log(value)
-
-        let usuario = dbUsuarios.filter(user=>{ //filtro la base de datos y asigno el resultado a una varaible
-            return user.email == value //aplico la condición si coincide el mail que el usuario ingresó en el imput con que está registrado
-        })
-        if(usuario == false){ 
-            return true 
-        }else{
-            return false 
-        }
-     
-    })
-    .withMessage('Este email ya está registrado'),
-
-    /*check('email')
-    .isEmail()
-    .withMessage('Debes ingresar un email válido'),*/
-
     check('pass')
     .isLength({
         min:6,

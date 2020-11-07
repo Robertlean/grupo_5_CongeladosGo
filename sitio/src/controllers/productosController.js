@@ -14,7 +14,7 @@ const {validationResult} = require("express-validator")
         
         db.Productos.findOne({
             where:{
-                idProductos: idProducto
+                idProductos: idProducto//cambiar
             }
         }).then(productos => {
             res.send(productos)
@@ -43,22 +43,22 @@ const {validationResult} = require("express-validator")
 
     productos: function (req, res, next){
         let categorias;
-        db.Categorias.findAll({
-            attributes:["nombre"]
+        db.Categorias.findAll({ //cambiar
+            attributes:["nombre"]//cambiar
+        })//cambiar
+        .then(elementos => {//cambiar
+            categorias = elementos//cambiar
         })
-        .then(elementos => {
-            categorias = elementos
+        .catch(error => {//cambiar
+            res.send(error)//cambiar
         })
-        .catch(error => {
-            res.send(error)
-        })
-        let productos;
+        let productos;//cambiar
 
-        db.Productos.findAll({
+        db.Productos.findAll({//cambiar
             include:[{
-                association: "Categorias"
+                association: "Categorias"//cambiar
             }]
-        })
+        })//cambiar
         .then(elementos =>{
             productos = elementos
             res.render('Productos',{
@@ -106,7 +106,7 @@ const {validationResult} = require("express-validator")
             db.Productos.create({
                 nombre: req.body.nombre.trim(),
                 precio: req.body.precio.trim(),
-                idCategoria: req.body.categoria.trim(),
+                idCategoria: req.body.categoria.trim(),//cambiar
                 stock: req.body.stock.trim(),
                 descripcion: req.body.descripcion.trim(),
                 imagen: (req.files[0] ? req.files[0].filename : "default-image.png")
@@ -119,21 +119,29 @@ const {validationResult} = require("express-validator")
             })            
         }
         else{
-            res.render("formAgregarProducto",{
+            db.Categorias.findAll()
+        .then(categorias =>{
+
+            res.render('formProductos',{
+                title:"Agregar Producto",
                 css:"style.css",
-                title: "Agregar Producto",
                 error: error.mapped(),
                 inputs: req.body,
-                usuario: req.session.usuario
+                usuario: req.session.usuario,
+                categorias: categorias
             })
+        })
+        .catch(error => {
+            res.send(error)
+        })       
         }
     },
 
-    form: function (req, res, next){
+    formEditar: function (req, res, next){
         let id = req. params.id
         db.Productos.findOne({
             where:{
-                id:id
+                id_producto:id
             }
         })
         .then(elemento => {
@@ -149,7 +157,7 @@ const {validationResult} = require("express-validator")
         })
     },
 
-    publicar:function(req,res,next){
+    /* publicar:function(req,res,next){
         let lastID = 1;
         productos.forEach(producto=>{
             if(producto.id > lastID){
@@ -172,7 +180,7 @@ const {validationResult} = require("express-validator")
         fs.writeFileSync(path.join(__dirname,"..","data","productos.json"),JSON.stringify(productos),'utf-8')
 
         res.redirect('/')
-    },
+    }, */
     
 
     
@@ -195,15 +203,11 @@ const {validationResult} = require("express-validator")
 
     eliminar:function(req,res){
         let idProducto = req.params.id;
-        fb.Productos.destroy({
+        db.Productos.destroy({
             where: {
                 idProducto: idProducto
             }
         })
         res.redirect('/users/administrador')
-
-
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'), JSON.stringify(dbProducts));
-        res.redirect('/dbusers/profile')
     }
 }

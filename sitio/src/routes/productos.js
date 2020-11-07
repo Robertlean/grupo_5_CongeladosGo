@@ -29,7 +29,7 @@ router.get('/cart',sessionUserCheck, productosController.carrito)
 //procesa los datos y agrega producto
 router.post('/agregar', upload.any(), productosController.crear)
 
-router.get('editar/:id',productosController.form)
+router.get('editar/:id',productosController.formEditar)
 router.put('/editar/:id',upload.any(), productosController.editar)
 
 router.delete('/delete/:id',productosController.eliminar)

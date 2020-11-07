@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.DECIMAL(10,0),
             allowNull:false
         },
-        idUsuarios:{
+        id_usuario:{
             type:dataTypes.INTEGER(11),
             allowNull:false
         },

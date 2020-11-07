@@ -1,4 +1,3 @@
-let dbProducts = require('../data/dbproductos');
 const users = require('../data/dbusers');
 const bcrypt = require('bcrypt');
 const path = require('path');
@@ -68,7 +67,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
             })
             .then(usuario => {
                 req.session.usuario = {
-                    id: usuario.idUsuario,
+                    id: usuario.id_usuario,
                     apodo: usuario.nombre + " " + usuario.apellido,
                     email: usuario.email,
                     
@@ -87,8 +86,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 title:"Ingresá a tu cuenta",
                 css: "style.css",
                 errors: errors.mapped(),
-                old:req.body,
-                usuario: req.session.usuario
+                old:req.body
             })
         }
     },
@@ -98,7 +96,6 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 title: "Perfil de usuario",
                 css: "style.css",
                 usuario:req.session.usuario
-
             })
         },
         desloguear:function(req,res){
@@ -108,7 +105,8 @@ module.exports = { //exporto un objeto literal con todos los metodos
             }
             console.log(typeof usuario)
             return res.redirect('/perfil/usuario')
-        }
+        },
+        //metodo process edit perfil
 }
 
 

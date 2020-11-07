@@ -1,30 +1,25 @@
-@import "style.css";
+@import"style.css";
 
+.bodi{   
+    background-color:#f1f1f1a6;
+}
 
 h5{
-    color: #181818;
-}
-.carrito{
-    width: 100%;
-    border-radius: 5px;
-    color: white;
-    padding: 1em 3em;
-    margin: auto;
+    color:#f1f1f1a6;
 }
 
-.row{
-    border: 2px solid #ccc;
-    color: white;
+.carrito{   
+    background-color: #181818;
+    padding-left: 47px;
+    padding-top: 33px;
+    padding-right: 41px;
+}
+
+.card-body{ 
+    background-color: #181818;
 }
 
 .mr-2{
-    width: 60px;
-}
-@media(max-width: 768px){
-    .contenido{
-        padding:1em;
-    }
-    body{
-        display:inline-block;
-    }
+    height: 84px;
+    max-width: 100%;
 }
