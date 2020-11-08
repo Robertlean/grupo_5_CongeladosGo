@@ -3,7 +3,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
     index: function(req, res, next) {
         res.render('home',{
             css:'style.css',
-            title: 'home',
+            title: 'Home',
             productos:productos,
             usuario: req.session.usuario            
         })

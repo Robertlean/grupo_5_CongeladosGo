@@ -5,11 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var methodOverride = require('method-override');
-<<<<<<< HEAD
 var localsCheck = require('./middlewares/localsCheck');
-=======
-var localsCheck = require('./middlewares/localsCheck')
->>>>>>> 65a9450c9d4a747f5b799febdc5a0c1b6e25f1ea
 
 let mainRouter = require('./routes/main');
 let productosRouter = require('./routes/productos');

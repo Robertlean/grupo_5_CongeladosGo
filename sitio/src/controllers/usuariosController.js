@@ -33,7 +33,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 apellido: req.body.apellido.trim(),
                 email: req.body.email.trim(),
                 pass: bcrypt.hashSync(req.body.pass.trim(), 10),
-                rol= "user"
+                rol: "user"
             })
                 .then(result => {
 
@@ -59,19 +59,11 @@ module.exports = { //exporto un objeto literal con todos los metodos
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             db.Usuarios.findOne({
-                    where:{
-                        email: req.body.email
-                    }
-            })
-            .then(usuario => {
-                req.session.usuario = {
-                    id: usuario.idUsuarios,
-                    apodo: usuario.nombre + " " + usuario.apellido,
-                    email: usuario.email,
-                    rol: usuarios.rol,
-                    
+                where: {
+                    email: req.body.email
                 }
             })
+
                 .then(usuario => {
                     req.session.usuario = {
                         id: usuario.idUsuarios,
@@ -97,32 +89,32 @@ module.exports = { //exporto un objeto literal con todos los metodos
             })
         }
     },
-        
-    perfil:function(req, res){
+
+    perfil: function (req, res) {
         db.Usuarios.findOne({
-            where : {
-                id : req.params.id
+            where: {
+                id: req.params.id
             }
         })
-        .then(usuario => {
-            res.render('userPerfil',{
-                title: "Perfil de usuario",
-                css: "style.css",
-                usuario: usuario
+            .then(usuario => {
+                res.render('userPerfil', {
+                    title: "Perfil de usuario",
+                    css: "style.css",
+                    usuario: usuario
+                })
             })
-        })
-        .catch(error => res.send(error))
-       
+            .catch(error => res.send(error))
+
     },
 
-        desloguear:function(req,res){
-            req.session.destroy();
-            if(req.cookies.userCongeladosGo){
-                res.cookie('userCongeladoGo', '', {maxAge:-1})
-            }
-            return res.redirect('/')
-        },
-        //metodo process edit perfil
+    desloguear: function (req, res) {
+        req.session.destroy();
+        if (req.cookies.userCongeladosGo) {
+            res.cookie('userCongeladoGo', '', { maxAge: -1 })
+        }
+        return res.redirect('/')
+    },
+    //metodo process edit perfil
 }
 
 
