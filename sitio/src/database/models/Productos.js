@@ -19,7 +19,7 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.STRING(45),
             allowNull:false
         },
-        cantidadDeVentas:{
+        cantidad_ventas:{
             type:dataTypes.INTEGER(45),
             allowNull:false
         },
@@ -27,11 +27,11 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.DECIMAL(10,0),
             allowNull:false
         },
-        Stock:{
+        stock:{
             type:dataTypes.INTEGER(11),
             allowNull:false
         },
-        idCategorias:{
+        id_categorias:{
             type:dataTypes.INTEGER(11),
             allowNull:false
         }
