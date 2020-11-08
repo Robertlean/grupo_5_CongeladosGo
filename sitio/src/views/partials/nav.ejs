@@ -33,22 +33,6 @@
     <ul class="itemsSesion">
         <!--Aquí deberá ir el html al ingreso-->
         
-
-        <% if (typeof user != "undefined" && user) { %>
-            <% if (user.rol == "store") { %>
-                <a href=""><img src="/images/logos/<%=user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
-            <% } else{%>
-                <a href=""><img src="/images/users/<%=user.avatar %> " alt="avatar" width="50px" height="50px" class="avatar"></a>
-            <% } %>
-           
-
-        <% } else{%>
-        <a href=""><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
-        <% } %>
-        
-        
-
-        
             <% if (typeof locals.user != "undefined") { %>
                
                 <li class="">
@@ -56,7 +40,7 @@
                     <i class="fas fa-user-alt "></i>  Mi cuenta
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/userios/pelfil">Mi perfil</a>
+                      <a class="dropdown-item" href="/usuarios/perfil/<%= usuario.id %> ">Mi perfil</a>
                       <a class="dropdown-item" href="">Cambiar contraseña</a>
                       
                       <% if (typeof user != "undefined" && user.rol=="admin") { %>
@@ -66,6 +50,12 @@
                         
                     </div>
                   </li>
+                  <li>
+                    <a><%= usuario.apodo %> </a>
+                </li>
+                  <li>
+                    <a  href="/usuarios/logout">Cerrar sesión</a>
+                </li>
                 
             <% } else{ %>
             
@@ -75,11 +65,7 @@
                 <li>
                     <a href="/usuarios/registro">Creá tu cuenta <i class="far fa-address-card "></i></a>
                 </li>
-                <li>
-                    <a  href="/usuarios/logout">Cerrar sesión</a>
-                </li>
-              
-                
+
             <% } %>
         
 

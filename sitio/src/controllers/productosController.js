@@ -7,7 +7,14 @@ const {validationResult} = require("express-validator")
 
  module.exports = { //exporto un objeto literal con todos los metodos
     listar:function(req,res){
-        res.send(Productos)
+        db.Productoc.findAll()
+        .them(productos =>{
+            res.render('productos',{
+                title: 'productos',
+                productos : productos,
+                css: 'style.css'
+            })
+        })
     },
     detalle: function(req, res, next) {
         let idProducto = req.params.id;
@@ -82,7 +89,6 @@ const {validationResult} = require("express-validator")
             res.render('formProductos',{
                 title:"Agregar Producto",
                 css:"style.css",
-                usuario: req.session.usuario,
                 categorias: categorias
             })
         })

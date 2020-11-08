@@ -11,19 +11,6 @@ module.exports = [
     .isLength(1)
     .withMessage('Debes ingresar una contraseña'),
 
-    /* body('email')
-    .custom(function(value){
-        return db.Usuarios.findOne({
-            where:{
-                email:value
-            }
-            })
-            .then(user => {
-                if(!user){
-                    return Promise.reject('Este mail ya está registrado')
-                }
-            })
-    }),  */
 
     body('password')
     .custom((value,{req})=>{
@@ -35,7 +22,7 @@ module.exports = [
         })
         .then(user => {
 /*             console.log(user)
- */            if(!bcrypt.compareSync(value,user.dataValues.contraseña)){ 
+ */            if(!bcrypt.compareSync(value,user.dataValues.pass)){ 
                 return Promise.reject('estas mal')
             }
         })

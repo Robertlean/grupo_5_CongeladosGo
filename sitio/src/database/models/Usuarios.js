@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Usuarios";
     let cols = {
-        id_usuario:{
+        idUsuarios:{
             type:dataTypes.INTEGER(11),
             allowNull:false,
             autoIncrement:true,
@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull:false,
             unique:true,
         },
-        contraseña:{
+        pass:{
             type:dataTypes.STRING(100),
             allowNull:false
         },
@@ -35,8 +35,8 @@ module.exports = (sequelize, dataTypes) => {
         fecha:{
             type:dataTypes.DATE(),
         },
-        imagen: {
-            type: dataTypes.STRING(100)
+        rol: {
+            type: dataTypes.STRING(45)
         }
     }
     let config = {

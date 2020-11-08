@@ -1,8 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `congeladosgodb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `congeladosgodb`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: congeladosgodb
 -- ------------------------------------------------------
--- Server version	5.5.5-10.3.16-MariaDB
+-- Server version	5.5.5-10.4.14-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -193,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-05 11:03:59
+-- Dump completed on 2020-11-05 10:46:38

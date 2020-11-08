@@ -13,7 +13,7 @@ router.post('/ingreso',loginValidator,usuariosController.processLogin);
 router.get('/registro',usuariosController.registro);
 router.post('/registro',registerValidator,usuariosController.processRegistro);
 
-router.get('/perfil',sessionUserCheck, usuariosController.perfil);
+router.get('/perfil/:id',sessionUserCheck, usuariosController.perfil);
 
 router.get('/logout',usuariosController.desloguear);
 

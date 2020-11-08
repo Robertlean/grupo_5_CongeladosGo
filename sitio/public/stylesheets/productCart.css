@@ -2,21 +2,60 @@
 
 .bodi{   
     background-color:#f1f1f1a6;
+    
 }
 
+.list-group-flush{
+    color: black;
+    border-radius: 2px;
+}
+
+.col-lg-8{
+    background-color: cornflowerblue;
+}
+.card.wish-list.mb-3{
+    width: 75%;
+    background-color: whitesmoke;
+    border: 0.5px solid #474747;
+    box-shadow: rgb(150, 150, 150) 3px 3px 5px;
+    border-radius: 2px;
+}
 h5{
-    color:#f1f1f1a6;
+    color: whitesmoke;
 }
-
-.carrito{   
+.row{
+    background-color: red;
+}
+/* .d-flex{
+    background-color: cyan;
+} */
+.mb-4{
     background-color: #181818;
+    border-radius: 2px;
+}
+.mb-3{
+    background-color: whitesmoke;
+    border-radius: 2px;
+    color: black;
+}
+.card.mb-3{
+    width: 75%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #181818;
+    color: white;
+    margin: auto;
+}
+.carrito{
+    background-color: #181818;   
     padding-left: 47px;
     padding-top: 33px;
     padding-right: 41px;
 }
 
 .card-body{ 
-    background-color: #181818;
+    background-color :#181818;
+    border-radius: 2px;
 }
 
 .mr-2{
