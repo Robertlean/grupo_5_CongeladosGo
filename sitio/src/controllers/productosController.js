@@ -81,7 +81,6 @@ const {validationResult} = require("express-validator")
         })
     },
 
-    //Falta seguir modificando desde acá
     agregar:function(req,res, next){
         db.Categorias.findAll()
         .then(categorias =>{

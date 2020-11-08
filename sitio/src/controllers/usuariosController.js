@@ -7,58 +7,57 @@ const { validationResult, body } = require('express-validator');
 const Usuarios = require('../database/models/Usuarios');
 
 module.exports = { //exporto un objeto literal con todos los metodos
-    registro:function(req,res){
-        res.render('formRegistro',{
+    registro: function (req, res) {
+        res.render('formRegistro', {
             title: "Registro de usuario",
-            css:"style.css",
-            
+            css: "style.css",
+
         })
     },
 
-    ingreso: function (req, res, next){
+    ingreso: function (req, res, next) {
         res.render('formIngreso', {
-            css:"style.css",
+            css: "style.css",
             title: "Inicio de sesión",
-            
+
         })
     },
-    
+
     /* Proceso de Registro */
-    processRegistro:function(req, res){
-        
-        let errors= validationResult(req);
-        console.log(req.body)    
-    if(errors.isEmpty()){
+    processRegistro: function (req, res) {
+        let errors = validationResult(req);
+        console.log(req.body)
+        if (errors.isEmpty()) {
             db.Usuarios.create({
                 nombre: req.body.nombre.trim(),
                 apellido: req.body.apellido.trim(),
                 email: req.body.email.trim(),
-                pass: bcrypt.hashSync(req.body.pass.trim(),10),
-                rol :"user"
+                pass: bcrypt.hashSync(req.body.pass.trim(), 10),
+                rol= "user"
             })
-            .then(result => {
-                
-                return res.redirect('/usuarios/ingreso')
-            })
-            .catch(errores => {
-                res.send(errores)
-            })
-        }else{
+                .then(result => {
+
+                    return res.redirect('/usuarios/ingreso')
+                })
+                .catch(errores => {
+                    res.send(errores)
+                })
+        } else {
             console.log(errors.errors)
-            res.render("formRegistro"),{
-                css : "style.css",
+            res.render("formRegistro"), {
+                css: "style.css",
                 title: "Registro",
                 errors: errors.mapped(),
                 inputs: req.body,
-                
+
             }
         }
-        
+
     },
 
-    processLogin: function(req, res, next){
+    processLogin: function (req, res, next) {
         let errors = validationResult(req);
-        if(errors.isEmpty()){
+        if (errors.isEmpty()) {
             db.Usuarios.findOne({
                     where:{
                         email: req.body.email
@@ -72,21 +71,29 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     rol: usuarios.rol,
                     
                 }
-                if(req.body.recordar){
-                    res.cookie('userCongeladosGo', req.session.usuario,
-                    {maxAge:1000*60*2})
-                }
-                return res.redirect('/')
             })
-            .catch(error=>{
-                res.send(error)
-            })
-        }else{
-            res.render('formIngreso',{
-                title:"Ingresá a tu cuenta",
+                .then(usuario => {
+                    req.session.usuario = {
+                        id: usuario.idUsuarios,
+                        apodo: usuario.nombre + " " + usuario.apellido,
+                        email: usuario.email,
+                        rol: usuario.rol
+                    }
+                    if (req.body.recordar) {
+                        res.cookie('userCongeladosGo', req.session.usuario,
+                            { maxAge: 1000 * 60 * 2 })
+                    }
+                    return res.redirect('/')
+                })
+                .catch(error => {
+                    res.send(error)
+                })
+        } else {
+            res.render('formIngreso', {
+                title: "Ingresá a tu cuenta",
                 css: "style.css",
                 errors: errors.mapped(),
-                old:req.body
+                old: req.body
             })
         }
     },
