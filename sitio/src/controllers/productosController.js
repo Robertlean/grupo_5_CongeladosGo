@@ -7,7 +7,7 @@ const {validationResult} = require("express-validator")
 
  module.exports = { //exporto un objeto literal con todos los metodos
     listar:function(req,res){
-        db.Productoc.findAll()
+        db.Productos.findAll()
         .then(productos =>{
             res.render('productos',{
                 title: 'Productos',

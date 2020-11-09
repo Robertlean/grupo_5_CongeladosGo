@@ -26,7 +26,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
     /* Proceso de Registro */
     processRegistro: function (req, res) {
         let errors = validationResult(req);
-        console.log(req.body)
+        /* return res.send(errors) */
         if (errors.isEmpty()) {
             db.Usuarios.create({
                 nombre: req.body.nombre.trim(),
@@ -66,7 +66,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
 
                 .then(usuario => {
                     req.session.usuario = {
-                        id: usuario.idUsuarios,
+                        id: usuario.id_usuarios,//cambio
                         apodo: usuario.nombre + " " + usuario.apellido,
                         email: usuario.email,
                         rol: usuario.rol
