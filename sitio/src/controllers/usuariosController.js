@@ -43,13 +43,13 @@ module.exports = { //exporto un objeto literal con todos los metodos
             })
         }else{
             console.log(errors.errors)
-            res.render("formRegistro"),{
+            res.render("formRegistro",{
                 css : "style.css",
                 title: "Registro",
-                errors: errors.mapped(),
-                inputs: req.body,
+                old: req.body,
+                erroes: errors.mapped(),
                 
-            }
+            })
         }
         
     },
@@ -64,7 +64,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
             })
             .then(usuario => {
                 req.session.usuario = {
-                    id: usuario.idUsuarios,
+                    id: usuario.id_usuarios,
                     apodo: usuario.nombre + " " + usuario.apellido,
                     email: usuario.email,
                     rol:usuario.rol,
@@ -91,14 +91,14 @@ module.exports = { //exporto un objeto literal con todos los metodos
         perfil:function(req, res){
             db.Usuarios.findOne({
                 where : {
-                    id : req.params.id
+                    id_usuarios : req.params.id
                 }
             })
             .then(usuario => {
                 res.render('userPerfil',{
                     title: "Perfil de usuario",
                     css: "style.css",
-                    usuario: usuario
+                    user: usuario
                 })
             })
             .catch(error => res.send(error))
