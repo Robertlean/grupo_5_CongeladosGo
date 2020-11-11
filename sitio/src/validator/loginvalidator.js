@@ -20,8 +20,8 @@ module.exports = [
             }
         })
         .then(user => {
-             console.log(user)
-             if(!bcrypt.compareSync(value,user.dataValues.pass)){ 
+            console.log(user)
+            if(!bcrypt.compareSync(value,user.dataValues.pass)){ 
                 return Promise.reject('estas mal')
             }
         })

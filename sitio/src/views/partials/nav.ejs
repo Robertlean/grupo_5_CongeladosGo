@@ -20,7 +20,7 @@
                 <input class="input" type="text" placeholder="Buscar">
             </div>
             <div class="control">
-             
+
                 <a class="button is-info color-gray">
                     <i class="fas fa-search"></i>
                 </a>
@@ -28,47 +28,50 @@
             </form>
         </div>
     </div>
-  
+
     <!--Ingreso sesión/ carrito-->
     <ul class="itemsSesion">
         <!--Aquí deberá ir el html al ingreso-->
-        
-            <% if (typeof usuario != "undefined") { %>
-               
-                <li class="">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-alt "></i>  Mi cuenta
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/usuarios/perfil/<%= usuario.id %> ">Mi perfil</a>
-                      <a class="dropdown-item" href="">Cambiar contraseña</a>
-                      
-                      <% if (usuario.rol=="admin") { %>
-                        <!--<div class="dropdown-divider"></div>-->
-                        <a class="dropdown-item" href="/productos/agregar">Agregar producto</a>
 
-                        <% } %>
-                        
-                    </div>
-                  </li>
-                  <li>
-                    <a href="" class="text-write"><%= usuario.apodo %> </a>
-                </li>
-                  <li>
-                    <a href="" class="text-write" href="/usuarios/logout">Cerrar sesión</a>
-                </li>
-                
-            <% } else{ %>
-            
-                <li>
-                    <a href="/usuarios/ingreso">Ingresá <i class="fas fa-sign-in-alt "></i></a>
-                </li>
-                <li>
-                    <a href="/usuarios/registro">Creá tu cuenta <i class="far fa-address-card "></i></a>
-                </li>
+        <% if (typeof usuario != "undefined") { %>
 
-            <% } %>
-        
+        <li class="">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-alt "></i> Mi cuenta
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/usuarios/perfil/<%= usuario.id %> ">Mi perfil</a>
+                <a class="dropdown-item" href="">Cambiar contraseña</a>
+
+                <% if (usuario.rol=="admin") { %>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/productos/agregar">Agregar producto</a>
+
+                <% } %>
+
+            </div>
+        </li>
+        <li>
+            <a href="" class="text-write"><%= usuario.apodo %></a>
+        </li>
+        <li>
+            <a href="/usuarios/logout">Cerrar sesión</a>
+        </li>
+
+        <% } else{ %>
+
+        <li>
+            <a href="/usuarios/ingreso">Ingresá <i class="fas fa-sign-in-alt "></i></a>
+        </li>
+        <li>
+            <a href="/usuarios/registro">Creá tu cuenta <i class="far fa-address-card "></i></a>
+        </li>
+
+
+
+        <% } %>
+
 
         <!--Aquí deberá ir el carrito de compra-->
         <li><a href="/carrito/carrito"><i class="fas fa-shopping-cart"></i></a></li>

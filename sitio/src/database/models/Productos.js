@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Productos";
     let cols = {
-        id_productos:{
+        id_producto:{
             type:dataTypes.INTEGER(11),
             allowNull:false,
             autoIncrement:true,
@@ -39,7 +39,6 @@ module.exports = (sequelize, dataTypes) => {
     let config = {
         tablaName: "productos",
         timetamps:false,
-        underscored: true
     }
     const Productos = sequelize.define(alias, cols, config);
 

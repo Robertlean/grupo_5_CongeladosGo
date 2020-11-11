@@ -1,12 +1,18 @@
 let productos= require('../data/dbProductos');
+let db = require('../database/models')
 module.exports = { //exporto un objeto literal con todos los metodos
     index: function(req, res, next) {
-        res.render('home',{
-            css:'style.css',
-            title: 'Home',
-            productos:productos,
-            usuario: req.session.usuario            
+        db.Productos.findAll()
+        .then(productos => {
+            res.render('home',{
+                css:'index.css',
+                title: 'home',
+                productos:productos,
+                usuario: req.session.usuario            
+            })
         })
+        .catch(error => res.send(error))
+       
     },
     search: function (req, res){
         let buscar = req.query.search;

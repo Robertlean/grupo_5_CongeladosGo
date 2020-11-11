@@ -8,40 +8,33 @@ const {validationResult} = require("express-validator")
  module.exports = { //exporto un objeto literal con todos los metodos
     listar:function(req,res){
         db.Productos.findAll()
-        .then(productos =>{
+        .then(productos => {
             res.render('productos',{
                 title: 'Productos',
                 productos : productos,
-                css: 'style.css'
+                css:"style.css",
             })
         })
         .catch(error => res.send(error))
     },
     detalle: function(req, res, next) {
-        let idProducto = req.params.id;
+        
         
         db.Productos.findOne({
             where:{
-                idProductos: idProducto//cambiar
+                id_producto: req.params.id//cambiar
             }
-        }).then(productos => {
-            res.send(productos)
-         /*    db.Productos.findAll({
-                where:{
-                    idCategorias: productos.idcategoria
-                }
-            }).then(recomendacion =>{ */
+        })
+        .then(producto => {
+         
                 res.render('detallesProducto', {
-                    title: Productos.nombre,
-                    producto : Productos,
+                    title: producto.nombre,
+                    producto : producto,
                     css:"style.css",
                     usuario: req.session.usuario
                 })
-          /*   })
-            .catch(error => {
-                res.send(error)
-            }) */
-        })
+            })
+           
         .catch(error => {
             res.send(error)
         })
@@ -81,6 +74,7 @@ const {validationResult} = require("express-validator")
         })
     },
 
+    //Falta seguir modificando desde acá
     agregar:function(req,res, next){
         db.Categorias.findAll()
         .then(categorias =>{
@@ -192,7 +186,7 @@ const {validationResult} = require("express-validator")
     editar:function(req, res, next){
         let idProducto = req.params.id;
 
-        db.Productos.update({
+        db.Producto.update({
            nombre: req.body.nombre,
            precio: req.body.precio,
            categoria: req.body.categoria,

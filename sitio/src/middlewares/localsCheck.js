@@ -1,8 +1,6 @@
-/* const { Model } = require("sequelize/types"); */
-
-module.exports = function localsCheck(req,res,netx) {
-    if(req.session.ususario){
+module.exports = function localsCheck(req,res,next){
+    if(req.session.usuario){
         res.locals.usuario = req.session.usuario
     }
-    netx()
+    next()
 }
