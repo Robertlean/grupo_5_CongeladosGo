@@ -74,12 +74,13 @@ const {validationResult} = require("express-validator")
         })
     },
 
-    //Falta seguir modificando desde acá
+   
     agregar:function(req,res, next){
         db.Categorias.findAll()
+        
         .then(categorias =>{
-
-            res.render('formProductos',{
+            console.log(categorias)
+            res.render('productAdd',{
                 title:"Agregar Producto",
                 css:"style.css",
                 categorias: categorias
@@ -100,18 +101,19 @@ const {validationResult} = require("express-validator")
 
     crear: function(req, res, next){
         let errores = validationResult(req);
-        console.log(req.body)
+        console.log()
         if (errores.isEmpty()){
             db.Productos.create({
-                nombre: req.body.nombre.trim(),
-                precio: req.body.precio.trim(),
-                idCategoria: req.body.categoria.trim(),//cambiar
-                stock: req.body.stock.trim(),
-                descripcion: req.body.descripcion.trim(),
-                imagen: (req.files[0] ? req.files[0].filename : "default-image.png")
+                nombre: req.body.nombre,
+                precio: req.body.precio,
+                id_categorias: req.body.categoria,
+                stock: req.body.stock,
+                descripcion: req.body.stock,
+                imagen: (req.files[0])?req.files[0].filename : "default-image.png",
+                cantidad_ventas : req.body.cantidad
             })
             .then(respuesta =>{
-                res.redirect("/productos")
+                res.redirect("/productos/listar")
             })
             .catch(error => {
                 res.send(error)
@@ -125,7 +127,7 @@ const {validationResult} = require("express-validator")
                 title:"Agregar Producto",
                 css:"style.css",
                 error: error.mapped(),
-                inputs: req.body,
+                old: req.body,
                 usuario: req.session.usuario,
                 categorias: categorias
             })
@@ -137,10 +139,13 @@ const {validationResult} = require("express-validator")
     },
 
     formEditar: function (req, res, next){
-        let id = req. params.id
+        let id = req.params.id
+        console.log(req.params.id)
         db.Productos.findOne({
+
             where:{
                 id_producto:id
+
             }
         })
         .then(elemento => {
@@ -149,6 +154,7 @@ const {validationResult} = require("express-validator")
                 title : "Modificar producto",
                 css: "style.css",
                 usuario:req.session.usuario
+
             })
         })
         .catch(error => {
