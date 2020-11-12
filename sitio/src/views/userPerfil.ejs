@@ -24,7 +24,7 @@
                                         <a class="nav-link " id="home-tab" data-toggle="tab" href="#datos" role="tab" aria-controls="home" aria-selected="true">Mis Datos</a>
                                     </li>
                                 </ul>
-                                        <form>
+                                        <form action="/usuarios/perfil/<%= user.id_usuarios %>?_method=PUT"  method="POST" >
                                             <div class="row">
                                                 <div class="col">
                                                   <input type="text" class="form-control" value="<%= user.nombre %> ">

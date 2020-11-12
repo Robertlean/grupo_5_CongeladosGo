@@ -96,15 +96,47 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 }
             })
             .then(usuario => {
+                console.log(usuario)
                 res.render('userPerfil',{
                     title: "Perfil de usuario",
                     css: "style.css",
-                    user: usuario
+                    user: usuario,
+                    id : req.params.id
                 })
             })
             .catch(error => res.send(error))
            
         },
+        processPerfil: function(req, res){
+            db.Usuarios.update({
+                nombre: req.body.nombre.trim(),
+                apellido: req.body.apellido.trim(),
+                email: req.body.email.trim(),
+                pass: bcrypt.hashSync(req.body.pass.trim(), 10),
+                rol: "user"
+            },{
+                where: {
+                    id_usuarios: req.params.id
+                }
+            })
+            .then(resultado =>{
+                db.Usuarios.findOne({
+                    where : {
+                        id_usuarios : req.params.id
+                    }
+                })
+                .then(usuario => {
+                    res.render('userPerfil',{
+                        title: "Perfil de usuario",
+                        css: "style.css",
+                        user: usuario
+                    })
+                })
+                .catch(error => res.send(error))
+               
+            })
+        },
+    
         desloguear:function(req,res){
             req.session.destroy();
             if(req.cookies.userCongeladosGo){

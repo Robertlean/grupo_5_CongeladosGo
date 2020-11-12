@@ -14,6 +14,7 @@ router.get('/registro',usuariosController.registro);
 router.post('/registro',registerValidator,usuariosController.processRegistro);
 
 router.get('/perfil/:id',sessionUserCheck, usuariosController.perfil);
+router.put('/perfil/:id', usuariosController.processPerfil);
 
 router.get('/logout',usuariosController.desloguear);
 
