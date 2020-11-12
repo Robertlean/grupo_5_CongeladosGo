@@ -146,7 +146,7 @@ CREATE TABLE `usuarios` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `imagen` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_usuarios`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +155,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Eric','Mena','menaericdaniel@gmail.com',NULL,'$2b$10$6kY.x7.dsLoJEhJLBPUqPe3sa3m5OwzQLJW/nU3vL8shPFFuUtssG','admin','',NULL,'2020-11-07 23:56:51','2020-11-07 23:56:51',NULL),(2,'Roberto','Veintemilla','roberto@gmail.com',NULL,'$2b$10$pVj/3MVEYon9cy2Ny72CDe2a2PT4533hst6QKsDPgLkFLEmjp1dDO','user','',NULL,'2020-11-08 00:36:28','2020-11-08 00:36:28',NULL),(3,'Paulina','Fridman','paulina@gmail.com',NULL,'$2b$10$QIatRU3NKweK1DVH4253nOKFB32a.8ufAtKr9DiRrcMH71JUex0Pq','user','',NULL,'2020-11-08 00:54:22','2020-11-08 00:54:22',NULL),(4,'nahuel','ojeda','nahuel@hotmail.com',NULL,'$2b$10$eHn6uP5dHX0Ex4KExT07AexMb5aP1AXUhpxmx.M/6vvBeCjDwMCtm','admin','',NULL,'2020-11-12 00:01:24','2020-11-12 00:01:24',NULL);
+INSERT INTO `usuarios` VALUES (1,'Eric','Mena','menaericdaniel@gmail.com',NULL,'$2b$10$6kY.x7.dsLoJEhJLBPUqPe3sa3m5OwzQLJW/nU3vL8shPFFuUtssG','admin','',NULL,'2020-11-07 23:56:51','2020-11-07 23:56:51',NULL),(2,'Roberto','Veintemilla','roberto@gmail.com',NULL,'$2b$10$pVj/3MVEYon9cy2Ny72CDe2a2PT4533hst6QKsDPgLkFLEmjp1dDO','admin','',NULL,'2020-11-08 00:36:28','2020-11-08 00:36:28',NULL),(3,'Paulina','Fridman','paulina@gmail.com',NULL,'$2b$10$QIatRU3NKweK1DVH4253nOKFB32a.8ufAtKr9DiRrcMH71JUex0Pq','user','',NULL,'2020-11-08 00:54:22','2020-11-08 00:54:22',NULL),(4,'nahuel','ojeda','nahuel@hotmail.com',NULL,'$2b$10$eHn6uP5dHX0Ex4KExT07AexMb5aP1AXUhpxmx.M/6vvBeCjDwMCtm','admin','',NULL,'2020-11-12 00:01:24','2020-11-12 00:01:24',NULL),(5,'Leandro','Veintemilla','pipi@gmail.com',NULL,'$2b$10$L/zTiAQkmm6CZDRhuhtnHOELde/5n.NE09loVBNNm9uGw.6mpxdaO','user','',NULL,'2020-11-12 04:03:30','2020-11-12 04:03:30',NULL),(6,'Ailen','Formar','Ailen@gmail.com',NULL,'$2b$10$WWb9ORagtMZEzv7pTCneN.CFqGwOM9MJJBvz00t4FKLfAynLEbDFm','user','',NULL,'2020-11-12 18:38:18','2020-11-12 18:38:18',NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-11 21:50:15
+-- Dump completed on 2020-11-12 16:30:16
