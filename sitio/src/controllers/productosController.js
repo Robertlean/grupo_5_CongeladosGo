@@ -185,18 +185,22 @@ const {validationResult} = require("express-validator")
     
     editar:function(req, res, next){
         let idProducto = req.params.id;
-
+        console.log(req.body)
         db.Producto.update({
            nombre: req.body.nombre,
            precio: req.body.precio,
-           categoria: req.body.categoria,
+           id_categoria: req.body.categoria,
            stock: req.body.stock,
            descripcion: req.body.stock,
-           imahen: (req.files[0])?req.files[0].filename : productos.imagen
+           imagen: (req.files[0])?req.files[0].filename : productos.imagen,
+           cantidad_ventas : req.body.cantidad
         },{
             where: {
-                idProducto: idProducto
+                id_producto: idProducto
             }
+        })
+        .then(resultado => {
+            res.redirect('/productos/listar')
         })
     },
 

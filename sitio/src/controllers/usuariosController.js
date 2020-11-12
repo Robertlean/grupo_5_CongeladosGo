@@ -101,7 +101,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     title: "Perfil de usuario",
                     css: "style.css",
                     user: usuario,
-                    id : req.params.id
+                    js : "perfilValidator.js"
                 })
             })
             .catch(error => res.send(error))
