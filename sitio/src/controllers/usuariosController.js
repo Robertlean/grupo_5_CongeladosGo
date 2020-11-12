@@ -10,6 +10,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('formRegistro',{
             title: "Registro de usuario",
             css:"style.css",
+            js:"registerValidator.js"
             
         })
     },

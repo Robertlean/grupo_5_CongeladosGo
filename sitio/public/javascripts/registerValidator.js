@@ -1,15 +1,17 @@
-let qs = function(elementos){
+let qs = function(elemento){
      return document.querySelector(elemento)
 }
 window.addEventListener('load',function(){
 
-    let formulario = qs ('form#elementos')
+    console.log('JS vinculado correctamente...')
 
-    let inputNombre = qs('#nombre');
-    let inputApellido = qs('#apellido');
-    let inputEmail = qs('#email');
-    let inputPass = qs('#pass');
-    let inputPass2 = qs('#pass2');
+    let formulario = qs ('form#formRegister')
+
+    let inputNombre = qs('#inputNombre');
+    let inputApellido = qs('#inputApellido');
+    let inputEmail = qs('#inputEmail');
+    let inputPass = qs('#inputPass');
+    let inputPass2 = qs('#inputPass2');
     let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
 
 
@@ -19,19 +21,17 @@ window.addEventListener('load',function(){
     inputNombre.addEventListener('blur', function(){
         switch (true) {
             case this.value.lenght == 0:
-                errores.nombre = "El campo del  nombre es obligatorio";
-                errorNombre.innerHTML = errores.nombre
+                errorNombre.innerHTML = "El campo del  nombre es obligatorio";
                 this.classList.add('is_invalid')
                 break;
             case this.value.length == 0:
-                errores.nombre = "El campo del nombre debe tener al menos 3 letras";
-                errorNombre.innerHTML = errores.nombre
+                errorNombre.innerHTML = "El campo del nombre debe tener al menos 3 letras";
                 this.classList.add('is-invalid')
                 break;
             default:
                 this.classList.remove('is-invalid');
-                this.classList.add('is-invalid');
-                errorNombre.innerHTML == 0
+                this.classList.add('is-valid');
+                errorNombre.innerHTML = ""
                 break;
         }
     })
@@ -39,19 +39,17 @@ window.addEventListener('load',function(){
     inputApellido.addEventListener('blur',function(){
         switch (true) {
             case this.value.length == 0:
-                errores.apellido = "El campo del apellido obligatorio";
-                errorapellido.innerHTML = errores.apellido
+                errorApellido.innerHTML =  "El campo del apellido obligatorio";
                 this.classList.add('is-invalid')
                 break;
             case this.value.length <= 2:
-                errores.apellido = "El campo del apellido debe tener al menos 3 letras";
-                errorapellido.innerHTML = errores.apellido
+                errorapellido.innerHTML = "El campo del apellido debe tener al menos 3 letras";
                 this.classList.add('is-invalid')
                 break;
             default:
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');
-                errorapellido.innerHTML == 0
+                errorApellido.innerHTML = ""
                 break;
             }
         })
@@ -59,19 +57,17 @@ window.addEventListener('load',function(){
         inputEmail.addEventListener('blur',function(){
             switch (true) {
                 case this.value.length == 0:
-                    errores.email = "El campo del email obligatorio";
-                    errorEmail.innerHTML = errores.email
+                    errorEmail.innerHTML = "El campo del email obligatorio";
                     this.classList.add('is-invalid')
                     break;
                 case !regExEmail.test(this.value):
-                    errores.email = "El campo del email debe tener al menos 3 letras";
-                    errorEmail.innerHTML = errores.email
+                    errorEmail.innerHTML = "El campo del email debe tener al menos 3 letras";
                     this.classList.add('is-invalid')
                     break;
                 default:
                     this.classList.remove('is-invalid');
                     this.classList.add('is-valid');
-                    errorEmail.innerHTML == 0
+                    errorEmail.innerHTML = ""
                     break;
              }
          })
@@ -79,19 +75,17 @@ window.addEventListener('load',function(){
          inputPass.addEventListener('blur',function(){
             switch (true) {
                 case this.value.length == 0:
-                    errores.pass = "El campo del Contraseña obligatorio";
-                    errorPass.innerHTML = errores.pass
+                    errorPass.innerHTML ="El campo del Contraseña obligatorio";
                     this.classList.add('is-invalid')
                     break;
                 case !regExPass.test(this.value):
-                    errores.pass = "El campo del Contraseña debe tener: entre 6 y 12 caracteres al menos una mayuscula, una miniscula y un numero";
-                    errorpass.innerHTML = errores.pass
+                    errorPass.innerHTML = "El campo del Contraseña debe tener: entre 6 y 12 caracteres al menos una mayuscula, una miniscula y un numero";
                     this.classList.add('is-invalid')
                     break;
                 default:
                     this.classList.remove('is-invalid');
                     this.classList.add('is-valid');
-                    errorPass.innerHTML == 0
+                    errorPass.innerHTML = ""
                     break;
              }
          })
@@ -99,13 +93,11 @@ window.addEventListener('load',function(){
          inputPass2.addEventListener('blur',function(){
             switch (true) {
                 case this.value == "":
-                    errores.pass2 = "La verificación de contraseña es obligatorio"
-                    errorPass2.innerHTML = errores.pass2;
+                    errorPass2.innerHTML = "La verificación de contraseña es obligatorio"
                     this.classList.add('is-invalid')
                 break
                 case this.value != inputPass.value:
-                    errores.pass2 = "Las contraseñas no coinciden"
-                    errorPass2.innerHTML = errores.pass2;
+                    errorPass2.innerHTML ="Las contraseñas no coinciden"
                     this.classList.add('is-invalid')
                 break;
                 default:
