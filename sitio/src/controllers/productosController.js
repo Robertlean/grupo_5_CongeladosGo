@@ -140,7 +140,7 @@ const {validationResult} = require("express-validator")
         let id = req. params.id
         db.Productos.findOne({
             where:{
-                id_producto:id
+                id_producto:req. params.id
             }
         })
         .then(elemento => {
@@ -196,7 +196,7 @@ const {validationResult} = require("express-validator")
            cantidad_ventas : req.body.cantidad
         },{
             where: {
-                id_producto: idProducto
+                id_producto: req.params.id
             }
         })
         .then(resultado => {

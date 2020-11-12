@@ -40,9 +40,11 @@
                         <label for="Titulo"></label>
                         <select name="categoria" id="categoria" class="form-control <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>">
                           <option value="">Eligí la categoría</option>
+
                           <% if (typeof oldCategoria != 'undefined') { %>
                               <option value="<%= old.categoria %> " selected><%= oldCategoria %> </option>
                           <% } %>
+                          
                           <% categorias.forEach(categoria => { %>
                               <option value="<%= categoria.id %>"><%= categoria.nombre %> </option>
                           <% }) %>>

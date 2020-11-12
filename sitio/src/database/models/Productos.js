@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.INTEGER(11),
             allowNull:false
         },
-        id_categorias:{
+        id_categoria:{
             type:dataTypes.INTEGER(11),
             allowNull:false
         }
@@ -42,19 +42,19 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Productos = sequelize.define(alias, cols, config);
 
-    /*Productos.associate = function(models){
+    Productos.associate = function(models){
         
         Productos.belongsTo(models.Categorias,{
-            as:"categorias",
-            foreignKey:"idCategorias"
+            as:"categoria",
+            foreignKey:"id_categoria"
         })
-        Productos.belongsToMany(models.Usuarios,{
-            as:"Usuarios",
-            through:"Carrito",
-            foreignKey: "idProductos",
-            otherKey:"idUsuarios",
-            timestamps: false
-        })
-    }*/
+        // Productos.belongsToMany(models.Usuarios,{
+        //     as:"Usuarios",
+        //     through:"Carrito",
+        //     foreignKey: "idProductos",
+        //     otherKey:"idUsuarios",
+        //     timestamps: false
+        // })
+    }
     return Productos;
 }
