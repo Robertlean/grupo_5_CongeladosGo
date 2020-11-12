@@ -63,14 +63,6 @@
                       </div>
 
                       <div class="form-group col-12 col-xl-6">
-                        <label for="descuento"></label>
-                        <input type="number"
-                        class="form-control <%= (typeof old != 'undefined' && old.descuento && !errors.descuento)?"is-valid":(typeof errors != 'undefined' && errors.descuento)?"is-invalid": ""  %>"
-                        id="descuento" value="<%= (typeof old != 'undefined' && old.descuento)?old.descuento:'' %>" placeholder="descuento" name="descuento" min=1 />
-                        <small class="text-danger" id="errorDescuento"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %> </small>
-                      </div>
-
-                      <div class="form-group col-12 col-xl-6">
                         <label for="stock"></label>
                         <input type="number"
                         class="form-control <%= (typeof old != 'undefined' && old.stock && !errors.stock)?"is-valid":(typeof errors != 'undefined' && errors.stock)?"is-invalid": ""  %>"
