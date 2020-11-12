@@ -113,7 +113,7 @@ const {validationResult} = require("express-validator")
                 cantidad_ventas : req.body.cantidad
             })
             .then(respuesta =>{
-                res.redirect("/productos/listar")
+                res.redirect("/productos/")
             })
             .catch(error => {
                 res.send(error)
