@@ -5,10 +5,10 @@ const db = require('../database/models');
 module.exports = [
     check('ciudad')
     .isLength(3)
-    .withMessage('Debes ingresar un email válido'),
+    .withMessage('El campo ciudad debe teneral menos 3 caracteres'),
 
     check('direccion')
     .isLength(3)
-    .withMessage('Debes ingresar una contraseña'),
+    .withMessage('El campo dirección debe teneral menos 3 caracteres'),
 
 ]

@@ -42,14 +42,14 @@
                                                 </div>
                                                 <div class="form-group">
                                                   <label for="inputAddress">Direccion</label>
-                                                  <input type="text" class="form-control" id="inputDireccion" value="<%=(typeof user.direccion != 'undefined')?user.direccion:"" %>" name="direccion"><%=(typeof user.direccion != 'undefined')?user.direccion:"" %>
+                                                  <input type="text" class="form-control" id="inputDireccion" value="<%=(typeof user.direccion != 'undefined')?user.direccion:"" %>" name="direccion">
                                                   <small id = "errorDireccion" class="text-warning"><%= (typeof errors != 'undefined' && errors.direccion)?errors.direccion.msg: "" %> </small>
                                                 </div>
                                               
                                                 <div class="form-row">
                                                   <div class="form-group col-md-6">
                                                     <label for="inputCity">Ciudad</label>
-                                                    <input type="text" class="form-control" id="inputCiudad" value="<%=(typeof user.ciudad != 'undefined')?user.ciudad:"" %>" name="ciudad"><%=(typeof user.ciudad != 'undefined')?user.ciudad:"" %>
+                                                    <input type="text" class="form-control" id="inputCiudad" value="<%=(typeof user.ciudad != 'undefined')?user.ciudad:"" %>" name="ciudad">
                                                     <small id = "errorCiudad" class="text-warning"><%= (typeof errors != 'undefined' && errors.ciudad)?errors.ciudad.msg: "" %> </small>
                                                   </div>
                                                 

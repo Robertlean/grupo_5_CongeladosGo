@@ -125,14 +125,22 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 })
                 .catch(error => res.send(error))
             }else{
-                res.render('userPerfil',{
-                    title: "Perfil de usuario",
-                    css: "style.css",
-                    user: usuario,
-                    js : "perfilValidator.js",
-                    errors: errors.mapped(),
-                    old:req.body
+                db.Usuarios.findOne({
+                    where : {
+                        id_usuarios : req.params.id
+                    }
                 })
+                .then(usuario => {
+                    res.render('userPerfil',{
+                        title: "Perfil de usuario",
+                        css: "style.css",
+                        user: usuario,
+                        js : "perfilValidator.js",
+                        errors: errors.mapped(),
+                        old:req.body
+                    })
+                })
+                .catch(error => res.send(error))
             }   
             
         },
