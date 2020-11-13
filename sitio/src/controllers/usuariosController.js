@@ -121,7 +121,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
                     }
                 })
                 .then(resultado =>{
-                    res.redirect('/usuarios/perfil/'+req.params.id)
+                    res.redirect('/')
                 })
                 .catch(error => res.send(error))
             }else{

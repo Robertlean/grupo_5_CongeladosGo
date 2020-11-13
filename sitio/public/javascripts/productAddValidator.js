@@ -23,7 +23,7 @@ window.addEventListener('load', function() {
                 errorNombre.innerHTML = "El campo de Nombre es obligatorio";
                 this.classList.add('is_invalid')
                 break;
-            case !regExLetras.test(this.value):
+            case this.value.lenght <= 3: 
                 errorNombre.innerHTML = "El campo del Nombre debe tener al menos 3 letras";
                 this.classList.add('is-invalid')
                 break;
