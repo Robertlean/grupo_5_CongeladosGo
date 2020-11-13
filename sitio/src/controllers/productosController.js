@@ -83,7 +83,8 @@ const {validationResult} = require("express-validator")
             res.render('productAdd',{
                 title:"Agregar Producto",
                 css:"style.css",
-                categorias: categorias
+                categorias: categorias,
+                js : "productAddValidator.js"
             })
         })
         .catch(error => {
@@ -161,33 +162,6 @@ const {validationResult} = require("express-validator")
             res.send(error)
         })
     },
-
-    /* publicar:function(req,res,next){
-        let lastID = 1;
-        productos.forEach(producto=>{
-            if(producto.id > lastID){
-                lastID = producto.id
-            }
-        })
-        let newProduct = {
-            id:lastID + 1,
-            name:req.body.name,
-            category:req.body.category,
-            description:req.body.description,
-            cantidadxVenta:req.body.cantidadxVenta,
-            price:Number(req.body.price),
-            image:(req.files[0])?req.files[0].filename:"default-image.png",
-            stock:req.body.stock,
-            cantidadVendidas:req.body.cantidadVendidas
-        }
-        productos.push(newProduct);
-        
-        fs.writeFileSync(path.join(__dirname,"..","data","productos.json"),JSON.stringify(productos),'utf-8')
-
-        res.redirect('/')
-    }, */
-    
-
     
     editar:function(req, res, next){
         let idProducto = req.params.id;
