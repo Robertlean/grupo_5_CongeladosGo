@@ -90,6 +90,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
     },
         
         perfil:function(req, res){
+            let errors = validationResult(req);
             db.Usuarios.findOne({
                 where : {
                     id_usuarios : req.params.id
@@ -108,20 +109,31 @@ module.exports = { //exporto un objeto literal con todos los metodos
         },
         processPerfil: function(req, res){
             console.log(req.body)
-            db.Usuarios.update({
-                direccion:req.body.direccion,
-                ciudad:req.body.ciudad,
-                // pass: bcrypt.hashSync(req.body.pass.trim(), 10),
-            },{
-                where: {
-                    id_usuarios: req.params.id
-                }
-            })
-            .then(resultado =>{
+            let errors = validationResult(req);
+            if(errors.isEmpty()){
+                db.Usuarios.update({
+                    direccion:req.body.direccion,
+                    ciudad:req.body.ciudad,
+                    // pass: bcrypt.hashSync(req.body.pass.trim(), 10),
+                },{
+                    where: {
+                        id_usuarios: req.params.id
+                    }
+                })
+                .then(resultado =>{
                     res.redirect('/usuarios/perfil/'+req.params.id)
                 })
                 .catch(error => res.send(error))
-               
+            }else{
+                res.render('userPerfil',{
+                    title: "Perfil de usuario",
+                    css: "style.css",
+                    user: usuario,
+                    js : "perfilValidator.js",
+                    errors: errors.mapped(),
+                    old:req.body
+                })
+            }   
             
         },
     
