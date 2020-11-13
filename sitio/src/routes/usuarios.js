@@ -6,6 +6,7 @@ const sessionUserCheck = require('../middlewares/sessionUserCheck');
 const upImageAvatar  = require("../middlewares/upImageAvatar");
 const registerValidator = require('../validator/registerValidator');
 const loginValidator = require('../validator/loginvalidator');
+const loginValidator = require('../validator/loginvalidator');
 
 router.get('/ingreso',usuariosController.ingreso);
 router.post('/ingreso',loginValidator,usuariosController.processLogin);
