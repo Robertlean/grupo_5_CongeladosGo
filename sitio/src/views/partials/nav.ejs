@@ -38,7 +38,7 @@
         <li class="">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user-alt "></i> Mi cuenta
+                <i class="fas fa-user-alt "></i> <%= usuario.apodo %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/usuarios/perfil/<%= usuario.id %> ">Mi perfil</a>
@@ -52,9 +52,7 @@
 
             </div>
         </li>
-        <li>
-            <a href="" class="text-write"><%= usuario.apodo %></a>
-        </li>
+        
         <li>
             <a href="/usuarios/logout">Cerrar sesión</a>
         </li>

@@ -3,43 +3,45 @@ let qs = function (elemento) {
 }
 window.addEventListener('load', function () {
 
-    let formulario = qs('form#userPerfil')
+    let formulario = qs('form#formIngreso')
 
-    let inputDireccion = qs('#inputDireccion');
-    let inputCiudad = qs('#inputCiudad');
+    let inputEmail = qs('#inputEmail');
+    let inputPass = qs('#inputPass');
+    let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
+    let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
 
-    inputDireccion.addEventListener('blur', function () {
+    inputEmail.addEventListener('blur', function () {
         switch (true) {
             case this.value.lenght == 0: 
-                errorDireccion.innerHTML = "El campo ded  dirección es obligatorio";
-                this.classList.add('is-invalid')
+                errorEmail.innerHTML = "El campo de email es obligatorio";
+                this.classList.add('is_invalid')
                 break;
-            case this.value.length <= 3: 
-                errorDireccion.innerHTML = "El campo de dirección tiene pocos caracteres";
+            case !regExEmail.test(this.value):
+                errorEmail.innerHTML = "El campo del email debe tener al menos 3 letras";
                 this.classList.add('is-invalid')
                 break;
             default:
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');
-                errorDireccion.innerHTML == 0
+                errorEmail.innerHTML == 0
                 break;
         }
     })
 
-    inputCiudad.addEventListener('blur', function () {
+    inputPass.addEventListener('blur', function () {
         switch (true) {
             case this.value.length == 0: 
-                errorCiudad.innerHTML = "El campo de ciudad obligatorio";
+                errorPass.innerHTML = "El campo de contraseña obligatorio";
                 this.classList.add('is-invalid')
                 break;
-            case this.value.length <= 3:
-                errorCiudad.innerHTML = "El campo de ciudad tiene pocos caracteres";
+            case !regExPass.test(this.value):
+                errorPass.innerHTML = "No olvides que la contraseña debe tener entre 6 y 12 caracteres al menos una mayuscula, una miniscula y un numero";
                 this.classList.add('is-invalid')
                 break;
             default:
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');
-                errorCiudad.innerHTML == 0
+                errorPass.innerHTML == 0
                 break;
         }
     })

@@ -96,7 +96,6 @@ module.exports = { //exporto un objeto literal con todos los metodos
                 }
             })
             .then(usuario => {
-                console.log(usuario)
                 res.render('userPerfil',{
                     title: "Perfil de usuario",
                     css: "style.css",
@@ -108,33 +107,22 @@ module.exports = { //exporto un objeto literal con todos los metodos
            
         },
         processPerfil: function(req, res){
+            console.log(req.body)
             db.Usuarios.update({
-                nombre: req.body.nombre.trim(),
-                apellido: req.body.apellido.trim(),
-                email: req.body.email.trim(),
-                pass: bcrypt.hashSync(req.body.pass.trim(), 10),
-                rol: "user"
+                direccion:req.body.direccion,
+                ciudad:req.body.ciudad,
+                // pass: bcrypt.hashSync(req.body.pass.trim(), 10),
             },{
                 where: {
                     id_usuarios: req.params.id
                 }
             })
             .then(resultado =>{
-                db.Usuarios.findOne({
-                    where : {
-                        id_usuarios : req.params.id
-                    }
-                })
-                .then(usuario => {
-                    res.render('userPerfil',{
-                        title: "Perfil de usuario",
-                        css: "style.css",
-                        user: usuario
-                    })
+                    res.redirect('/usuarios/perfil/'+req.params.id)
                 })
                 .catch(error => res.send(error))
                
-            })
+            
         },
     
         desloguear:function(req,res){

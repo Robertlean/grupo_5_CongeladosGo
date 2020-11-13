@@ -24,7 +24,7 @@
                   </figure>
                 </div>
                 <div class="col-12 col-md-7 col-lg-6 col-xl-8 ">
-                  <form action="" method="POST" enctype="multipart/form-data" id="productAdd">
+                  <form action="/productos/agregar" method="POST" enctype="multipart/form-data" id="productAdd">
 
                     <div class="form-row">
 
@@ -40,13 +40,12 @@
                         <label for="Titulo"></label>
                         <select name="categoria" id="categoria" class="form-control <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>">
                           <option value="">Eligí la categoría</option>
-
-                          <% if (typeof oldCategoria != 'undefined') { %>
-                              <option value="<%= old.categoria %> " selected><%= oldCategoria %> </option>
+                          <% if (typeof old != 'undefined' && old.categoria) { %>
+                              <option value="<%= old.categoria.id_categorias %> " selected><%= old.categoria.nombre %> </option>
                           <% } %>
                           
                           <% categorias.forEach(categoria => { %>
-                              <option value="<%= categoria.id %>"><%= categoria.nombre %> </option>
+                              <option value="<%= categoria.id_categorias %>"><%= categoria.nombre %> </option>
                           <% }) %>>
                         </select>
                         <small id="errorCategoria" class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>
@@ -65,11 +64,19 @@
                       </div>
 
                       <div class="form-group col-12 col-xl-6">
-                        <label for="descuento"></label>
+                        <label for="stock"></label>
                         <input type="number"
-                        class="form-control <%= (typeof old != 'undefined' && old.descuento && !errors.descuento)?"is-valid":(typeof errors != 'undefined' && errors.descuento)?"is-invalid": ""  %>"
-                        id="descuento" value="<%= (typeof old != 'undefined' && old.descuento)?old.descuento:'' %>" placeholder="descuento" name="descuento" min=1 />
-                        <small class="text-danger" id="errorDescuento"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %> </small>
+                        class="form-control <%= (typeof old != 'undefined' && old.stock && !errors.stock)?"is-valid":(typeof errors != 'undefined' && errors.stock)?"is-invalid": ""  %>"
+                        id="stock" value="<%= (typeof old != 'undefined' && old.stock)?old.stock:'' %>" placeholder="stock" name="stock" min=1 />
+                        <small class="text-danger" id="errorStock"><%= (typeof errors != 'undefined' && errors.stock)?errors.stock.msg: "" %> </small>
+                      </div>
+
+                      <div class="form-group col-12 col-xl-6">
+                        <label for="cantidad"></label>
+                        <input type="number"
+                        class="form-control <%= (typeof old != 'undefined' && old.cantidad && !errors.cantidad)?"is-valid":(typeof errors != 'undefined' && errors.cantidad)?"is-invalid": ""  %>"
+                        id="cantidad" value="<%= (typeof old != 'undefined' && old.cantidad)?old.cantidad:'' %>" placeholder="cantidad" name="cantidad" min=1 />
+                        <small class="text-danger" id="errorCantidad"><%= (typeof errors != 'undefined' && errors.cantidad)?errors.cantidad.msg: "" %> </small>
                       </div>
 
                       <div class="form-group col-12">

@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.INTEGER(11),
             allowNull:false
         },
-        id_categoria:{
+        id_categorias:{
             type:dataTypes.INTEGER(11),
             allowNull:false
         }
@@ -46,7 +46,7 @@ module.exports = (sequelize, dataTypes) => {
         
         Productos.belongsTo(models.Categorias,{
             as:"categoria",
-            foreignKey:"id_categoria"
+            foreignKey:"id_categorias"
         })
         // Productos.belongsToMany(models.Usuarios,{
         //     as:"Usuarios",
