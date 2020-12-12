@@ -1,4 +1,4 @@
-let qs  = function (elemento) {
+let qs = function (elemento) {
     return document.querySelector(elemento)
 }
 window.addEventListener('load', function() {

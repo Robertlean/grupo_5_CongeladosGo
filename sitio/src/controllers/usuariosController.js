@@ -19,6 +19,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         res.render('formIngreso', {
             css:"formRegistro.css",
             title: "Inicio de sesión",
+            js:"loginValidator.js"
             
         })
     },
@@ -82,6 +83,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
         }else{
             res.render('formIngreso',{
                 title:"Ingresá a tu cuenta",
+                js:"loginValidator.js",
                 css: "style.css",
                 errors: errors.mapped(),
                 old:req.body

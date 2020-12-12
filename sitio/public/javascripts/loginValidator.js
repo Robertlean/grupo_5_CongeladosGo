@@ -1,14 +1,17 @@
 let qs = function (elemento) {
     return document.querySelector(elemento)
 }
-window.addEventListener('load', function () {
-
+window.addEventListener('load', function() {
+    
     let formulario = qs('form#formIngreso')
 
     let inputEmail = qs('#inputEmail');
     let inputPass = qs('#inputPass');
+    let errorPass= qs('#errorPass');
+
     let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
     let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
+
 
     inputEmail.addEventListener('blur', function () {
         switch (true) {
@@ -34,10 +37,6 @@ window.addEventListener('load', function () {
                 errorPass.innerHTML = "El campo de contraseña obligatorio";
                 this.classList.add('is-invalid')
                 break;
-            case !regExPass.test(this.value):
-                errorPass.innerHTML = "No olvides que la contraseña debe tener entre 6 y 12 caracteres al menos una mayuscula, una miniscula y un numero";
-                this.classList.add('is-invalid')
-                break;
             default:
                 this.classList.remove('is-invalid');
                 this.classList.add('is-valid');
@@ -45,12 +44,17 @@ window.addEventListener('load', function () {
                 break;
         }
     })
+    
+    errorPass.innerText =""
 
     formulario.addEventListener('submit', function (event) {
+
+        errorPass.innerText = ""
+
         let error = false
         event.preventDefault()
 
-        let elementosForm = this.elements
+        let elementosForm = formulario.elements
 
         for (let index = 0; index < elementosForm.length - 1; index++) {
             if (elementosForm[index].value == "") {

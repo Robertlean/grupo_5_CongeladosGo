@@ -1,5 +1,12 @@
 let productos= require('../data/dbProductos');
 let db = require('../database/models')
+
+const {
+    Op,
+    where
+} = require('sequelize');
+
+
 module.exports = { //exporto un objeto literal con todos los metodos
     index: function(req, res, next) {
         db.Productos.findAll()
@@ -15,21 +22,23 @@ module.exports = { //exporto un objeto literal con todos los metodos
        
     },
     search: function (req, res){
-        let buscar = req.query.search;
-        let products = [];
-        seccion = productos.filter(product => {
-            return product.name.toLowerCase().includes(buscar)
+
+        db.Productos.findAll({
+            where: {
+                nombre: {
+                    [Op.like]: `%${req.query.search}%`
+                }
+            }
+
         })
-        products.push({
-            cateoria: "los resultados para su busqueda de '" + buscar + " son:",
-            productos: seccion
-        });
-        res.render("Productos",{
-            title: "Resultado de la búsqueda",
-            products:products,
-            css: "style.css",
-            usuario: req.session.usuario
+        .then(productos => {
+            res.render('productos',{
+                title: 'Productos',
+                productos : productos,
+                css:"style.css",
+            })
         })
+        .catch(error => res.send(error))
     },
     carrito:(req, res) => {
         res.render('carrito',{
