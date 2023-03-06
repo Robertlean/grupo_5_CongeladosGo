@@ -65,9 +65,9 @@ Oferta al público: Las ofertas principales son de empanadas y pizzas que es lo 
 #### ¿Quienes somos?
 Somos tres socios unidos por un trabajo practico integrador de desarrollo web, ya llevamos 10 años en la industria del software,  nos dedicamos tiempo completo a este área  combinando nuestros conocimientos y liderazgo. Desde nuestros centros de servicio ubicados en San Miguel, Pilar y C.A.B.A., Bolivia, Paraguay y Mexico. Contamos con clientes Nacionales e internacionales como E.E.U.U., Turquia, Italia y Catalunia.
 
-<a href="https://github.com/Paulinafridman">Paulina Fridman </a>
-<a href="https://www.github.com/robertlean">Roberto Veintemilla </a>
-<a href="https://github.com/nahuel-ojeda">Nahuel Ojeda</a>
+<a href="https://github.com/Paulinafridman">Paulina Fridman <br>
+<a href="https://www.github.com/robertlean">Roberto Veintemilla <br>
+<a href="https://github.com/nahuel-ojeda">Nahuel Ojeda
 
 #### Sitios similares, relacionados o que sean de interés: 
 
