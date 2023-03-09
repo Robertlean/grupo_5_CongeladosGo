@@ -1,4 +1,3 @@
-const Productos= require('../data/dbProductos');
 const db = require("../database/models");
 const path = require('path');
 const fs = require('fs')

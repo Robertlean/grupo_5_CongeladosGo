@@ -14,7 +14,7 @@ module.exports = [
     body('password')
     .custom((value,{req})=>{
        
-        return db.Usuarios.findOne({
+        return db.usuarios.findOne({
             where:{
                 email:req.body.email
             }

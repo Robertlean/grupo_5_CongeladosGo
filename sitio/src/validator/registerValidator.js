@@ -17,7 +17,7 @@ module.exports = [
     body('email')
     .custom(function(value){
         console.log(value)
-        return db.Usuarios.findOne({
+        return db.usuarios.findOne({
             where:{
                 email:value
             }

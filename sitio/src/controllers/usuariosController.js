@@ -29,10 +29,11 @@ module.exports = { //exporto un objeto literal con todos los metodos
         
         let errors= validationResult(req);
     if(errors.isEmpty()){
-            db.Usuarios.create({
+            db.usuarios.create({
                 nombre: req.body.nombre.trim(),
                 apellido: req.body.apellido.trim(),
                 email: req.body.email.trim(),
+                ciudad: "calle falsa 123",
                 pass: bcrypt.hashSync(req.body.pass.trim(),10),
                 rol : "user"
             })
@@ -59,7 +60,7 @@ module.exports = { //exporto un objeto literal con todos los metodos
     processLogin: function(req, res, next){
         let errors = validationResult(req);
         if(errors.isEmpty()){
-            db.Usuarios.findOne({
+            db.usuarios.findOne({
                     where:{
                         email: req.body.email
                     }

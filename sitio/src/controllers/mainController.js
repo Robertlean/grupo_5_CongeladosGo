@@ -9,7 +9,7 @@ const {
 
 module.exports = { //exporto un objeto literal con todos los metodos
     index: function(req, res, next) {
-        db.Productos.findAll()
+        db.productos.findAll()
         .then(productos => {
             res.render('home',{
                 css:'index.css',
